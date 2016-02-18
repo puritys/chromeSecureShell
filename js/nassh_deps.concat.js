@@ -5754,16 +5754,16 @@ console.log(e);
   if (e.keyCode == 18)
     this.altKeyPressed = this.altKeyPressed | (1 << (e.location - 1));
 
-    if (this.ctrlVPasteHacky &&
-        e.ctrlKey == true && e.keyCode == 86
-    ) {
-        try {
-            term_.document_.execCommand('paste');
-            return ;
-        } catch (e) {
-            console.log(e);
-        }
-    }
+  if (this.ctrlVPasteHacky &&
+      e.ctrlKey == true && e.keyCode == 86
+  ) {
+      try {
+          term_.document_.execCommand('paste');
+          return ;
+      } catch (e) {
+          console.log(e);
+      }
+  }
 
   if (e.keyCode == 27) 
     this.preventChromeAppNonShiftDefault_(e);
@@ -5804,11 +5804,13 @@ console.log(e);
   var STRIP = hterm.Keyboard.KeyActions.STRIP;
 
   var control = e.ctrlKey;
-  if (this.metaAsCtrl &&
-      e.metaKey == true
-  ) {
-    control = e.metaKey; 
-  }
+
+   if (this.metaAsCtrl &&
+       e.metaKey == true
+   ) {
+     control = e.metaKey; 
+   }
+
   var alt = this.altIsMeta ? false : e.altKey;
   var meta = this.altIsMeta ? (e.altKey || e.metaKey) : e.metaKey;
 
