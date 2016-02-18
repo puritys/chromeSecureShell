@@ -1,0 +1,99 @@
+{
+   "bad_destination": {
+      "message": "Cieľovú adresu nie je možné analyzovať: $1",
+      "placeholders": {
+         "1": {
+            "content": "$1"
+         }
+      }
+   },
+   "before_unload": {
+      "message": "Closing this tab will disconnect this session."
+   },
+   "cancel_button_label": {
+      "message": "Zrušiť"
+   },
+   "cmd_ssh_forget_host_help": {
+      "message": "Tento príkaz zobrazí ponuku známych hostiteľov a príkazy pre hostiteľa, ktoré chcete odstrániť."
+   },
+   "cmd_ssh_forget_host_title": {
+      "message": "Odstrániť známeho hostiteľa SSH."
+   },
+   "cmd_ssh_help": {
+      "message": "Parametre |používateľské meno| a |názov hostiteľa| sú povinné, parameter |port| je voliteľný. Ak port nie je uvedený, predvolená hodnota je 22."
+   },
+   "cmd_ssh_title": {
+      "message": "Otvorí novú reláciu SSH."
+   },
+   "command_complete": {
+      "message": "Príkaz $1 bol dokončený s výstupným kódom $2. Toto okno môžete zavrieť.",
+      "placeholders": {
+         "1": {
+            "content": "$1"
+         },
+         "2": {
+            "content": "$2"
+         }
+      }
+   },
+   "connect_button_label": {
+      "message": "Pripojiť"
+   },
+   "connect_message": {
+      "message": "Zadajte cieľovú adresu, ku ktorej sa chcete pripojiť."
+   },
+   "connecting": {
+      "message": "Prebieha pripájanie k $1, port $2...",
+      "placeholders": {
+         "1": {
+            "content": "$1"
+         },
+         "2": {
+            "content": "$2"
+         }
+      }
+   },
+   "destination_pattern": {
+      "message": "pouzivatelskemeno@nazovhostitela[:port]"
+   },
+   "known_hosts_empty": {
+      "message": "Žiadni známi hostitelia, nie je čo odstrániť."
+   },
+   "known_hosts_prompt": {
+      "message": "Vyberte hostiteľa, ktorého chcete odstrániť [1-$1]:",
+      "placeholders": {
+         "1": {
+            "content": "$1"
+         }
+      }
+   },
+   "known_hosts_title": {
+      "message": "Známi hostitelia:"
+   },
+   "missing_param": {
+      "message": "Chýbajúci parameter: $1",
+      "placeholders": {
+         "1": {
+            "content": "$1"
+         }
+      }
+   },
+   "ok_button_label": {
+      "message": "OK"
+   },
+   "plugin_loading": {
+      "message": "Loading NaCl plugin..."
+   },
+   "plugin_loading_complete": {
+      "message": " done."
+   },
+   "unexpected_error": {
+      "message": "Vyskytla sa neočakávaná chyba. Ďalšie podrobnosti nájdete v konzole kódu JavaScript."
+   },
+   "welcome": {
+      "message": "Vitajte! Pomocou príkazu „open“ (otvoriť) otvorte nové pripojenie SSH."
+   },
+   "welcome_tip": {
+      "message": "Tip: Túto reláciu môžete uložiť ako záložku prehliadača."
+   }
+}

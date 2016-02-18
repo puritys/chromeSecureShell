@@ -1,0 +1,99 @@
+{
+   "bad_destination": {
+      "message": "Não foi possível analisar o destino: $1",
+      "placeholders": {
+         "1": {
+            "content": "$1"
+         }
+      }
+   },
+   "before_unload": {
+      "message": "Closing this tab will disconnect this session."
+   },
+   "cancel_button_label": {
+      "message": "Cancelar"
+   },
+   "cmd_ssh_forget_host_help": {
+      "message": "Este comando exibe um menu de hosts conhecidos e solicita o host a esquecer."
+   },
+   "cmd_ssh_forget_host_title": {
+      "message": "Esquecer um host ssh conhecido."
+   },
+   "cmd_ssh_help": {
+      "message": "Os parâmetros |username| e |hostname| são necessários, |port| é opcional. Se a porta não for especificada, o padrão será 22."
+   },
+   "cmd_ssh_title": {
+      "message": "Abre uma nova sessão SSH."
+   },
+   "command_complete": {
+      "message": "Comando $1 concluído com o código de saída $2. Esta janela já pode ser fechada.",
+      "placeholders": {
+         "1": {
+            "content": "$1"
+         },
+         "2": {
+            "content": "$2"
+         }
+      }
+   },
+   "connect_button_label": {
+      "message": "Conectar"
+   },
+   "connect_message": {
+      "message": "Digite um destino para se conectar."
+   },
+   "connecting": {
+      "message": "Conectando a $1, porta $2...",
+      "placeholders": {
+         "1": {
+            "content": "$1"
+         },
+         "2": {
+            "content": "$2"
+         }
+      }
+   },
+   "destination_pattern": {
+      "message": "username@hostname[:port]"
+   },
+   "known_hosts_empty": {
+      "message": "Não há hosts conhecidos, nada a esquecer."
+   },
+   "known_hosts_prompt": {
+      "message": "Selecione um host para esquecer [1-$1]:",
+      "placeholders": {
+         "1": {
+            "content": "$1"
+         }
+      }
+   },
+   "known_hosts_title": {
+      "message": "Hosts conhecidos:"
+   },
+   "missing_param": {
+      "message": "Parâmetro ausente: $1",
+      "placeholders": {
+         "1": {
+            "content": "$1"
+         }
+      }
+   },
+   "ok_button_label": {
+      "message": "OK"
+   },
+   "plugin_loading": {
+      "message": "Loading NaCl plugin..."
+   },
+   "plugin_loading_complete": {
+      "message": " done."
+   },
+   "unexpected_error": {
+      "message": "Ocorreu um erro inesperado. Verifique o console JavaScript para mais detalhes."
+   },
+   "welcome": {
+      "message": "Bem-vindo. Abra uma nova conexão ssh com o comando \"abrir\"."
+   },
+   "welcome_tip": {
+      "message": "Dica: você pode salvar esta sessão como favorito do navegador."
+   }
+}

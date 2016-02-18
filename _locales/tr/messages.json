@@ -1,0 +1,99 @@
+{
+   "bad_destination": {
+      "message": "Hedef ayrıştırılamıyor: $1",
+      "placeholders": {
+         "1": {
+            "content": "$1"
+         }
+      }
+   },
+   "before_unload": {
+      "message": "Closing this tab will disconnect this session."
+   },
+   "cancel_button_label": {
+      "message": "İptal"
+   },
+   "cmd_ssh_forget_host_help": {
+      "message": "Bu komut bilinen ana makinelerin bulunduğu bir menüyü görüntüler ve unutulacak ana makinenin belirtilmesini ister."
+   },
+   "cmd_ssh_forget_host_title": {
+      "message": "Bilinen bir ssh ana makinesini unut."
+   },
+   "cmd_ssh_help": {
+      "message": "|kullaniciadi| ve |anabilgisayaradi| parametreleri gereklidir. |baglantinoktasi| isteğe bağlıdır. Bağlantı noktası belirtilmezse varsayılan olarak 22 kullanılır."
+   },
+   "cmd_ssh_title": {
+      "message": "Yeni SSH oturumu açar."
+   },
+   "command_complete": {
+      "message": "$1 komutu $2 çıkış koduyla tamamlandı. Bu pencereyi istediğiniz zaman kapatabilirsiniz.",
+      "placeholders": {
+         "1": {
+            "content": "$1"
+         },
+         "2": {
+            "content": "$2"
+         }
+      }
+   },
+   "connect_button_label": {
+      "message": "Bağlan"
+   },
+   "connect_message": {
+      "message": "Lütfen bağlanılacak hedefi girin."
+   },
+   "connecting": {
+      "message": "$1, bağlantı noktası $2 adresine bağlanılıyor...",
+      "placeholders": {
+         "1": {
+            "content": "$1"
+         },
+         "2": {
+            "content": "$2"
+         }
+      }
+   },
+   "destination_pattern": {
+      "message": "kullaniciadi@anamakineadi[:baglantinoktasi]"
+   },
+   "known_hosts_empty": {
+      "message": "Hiçbir ana makine bilinmiyor, unutulacak bir şey yok."
+   },
+   "known_hosts_prompt": {
+      "message": "Lütfen unutulacak ana makineyi seçin [1-$1]:",
+      "placeholders": {
+         "1": {
+            "content": "$1"
+         }
+      }
+   },
+   "known_hosts_title": {
+      "message": "Bilinen ana makineler:"
+   },
+   "missing_param": {
+      "message": "Eksik parametre: $1",
+      "placeholders": {
+         "1": {
+            "content": "$1"
+         }
+      }
+   },
+   "ok_button_label": {
+      "message": "Tamam"
+   },
+   "plugin_loading": {
+      "message": "Loading NaCl plugin..."
+   },
+   "plugin_loading_complete": {
+      "message": " done."
+   },
+   "unexpected_error": {
+      "message": "Beklenmeyen bir hata oluştu, lütfen daha fazla ayrıntı için JavaScript konsolunu kontrol edin."
+   },
+   "welcome": {
+      "message": "Hoş geldiniz! 'open' komutuyla yeni bir ssh bağlantısı açın."
+   },
+   "welcome_tip": {
+      "message": "Uzmandan İpucu: Bu oturumu bir tarayıcı yer işareti olarak kaydedebilirsiniz."
+   }
+}

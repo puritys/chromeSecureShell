@@ -1,0 +1,99 @@
+{
+   "bad_destination": {
+      "message": "Не можем да анализираме синтактично местоназначението: $1",
+      "placeholders": {
+         "1": {
+            "content": "$1"
+         }
+      }
+   },
+   "before_unload": {
+      "message": "Closing this tab will disconnect this session."
+   },
+   "cancel_button_label": {
+      "message": "Отказ"
+   },
+   "cmd_ssh_forget_host_help": {
+      "message": "Тази команда показва меню с известните хостове и подканва да въведете кой от тях да бъде забравен."
+   },
+   "cmd_ssh_forget_host_title": {
+      "message": "Забравяне на известен ssh хост."
+   },
+   "cmd_ssh_help": {
+      "message": "Параметрите |username| и |hostname| са задължителни, а |port| е по избор. Ако портът не е посочен, по подразбиране се задава 22."
+   },
+   "cmd_ssh_title": {
+      "message": "Отваря нова SSH сесия."
+   },
+   "command_complete": {
+      "message": "Командата „$1“ завърши с код за изход $2. Моля, затворете този прозорец, когато ви е удобно.",
+      "placeholders": {
+         "1": {
+            "content": "$1"
+         },
+         "2": {
+            "content": "$2"
+         }
+      }
+   },
+   "connect_button_label": {
+      "message": "Свързване"
+   },
+   "connect_message": {
+      "message": "Моля, въведете местоназначение, с което да се свържете."
+   },
+   "connecting": {
+      "message": "Осъществява се връзка със: $1, порт $2...",
+      "placeholders": {
+         "1": {
+            "content": "$1"
+         },
+         "2": {
+            "content": "$2"
+         }
+      }
+   },
+   "destination_pattern": {
+      "message": "username@hostname[:port]"
+   },
+   "known_hosts_empty": {
+      "message": "Няма известни хостове – нищо за забравяне."
+   },
+   "known_hosts_prompt": {
+      "message": "Моля, изберете хост, който да бъде забравен [1-$1]:",
+      "placeholders": {
+         "1": {
+            "content": "$1"
+         }
+      }
+   },
+   "known_hosts_title": {
+      "message": "Известни хостове:"
+   },
+   "missing_param": {
+      "message": "Липсващ параметър: $1",
+      "placeholders": {
+         "1": {
+            "content": "$1"
+         }
+      }
+   },
+   "ok_button_label": {
+      "message": "OK"
+   },
+   "plugin_loading": {
+      "message": "Loading NaCl plugin..."
+   },
+   "plugin_loading_complete": {
+      "message": " done."
+   },
+   "unexpected_error": {
+      "message": "Възникна неочаквана грешка. Mоля, проверете конзолата на JavaScript за още подробности."
+   },
+   "welcome": {
+      "message": "Добре дошли! Отворете нова ssh връзка с командата  „open“."
+   },
+   "welcome_tip": {
+      "message": "Професионален съвет: Можете да запазите тази сесия като отметка в браузъра."
+   }
+}

@@ -1,0 +1,99 @@
+{
+   "bad_destination": {
+      "message": "A hely ($1) elemzése nem lehetséges.",
+      "placeholders": {
+         "1": {
+            "content": "$1"
+         }
+      }
+   },
+   "before_unload": {
+      "message": "Closing this tab will disconnect this session."
+   },
+   "cancel_button_label": {
+      "message": "Mégse"
+   },
+   "cmd_ssh_forget_host_help": {
+      "message": "Ez a parancs ismert gazdagépek egy listáját jeleníti meg, és megkérdezi, hogy melyiket felejtse el."
+   },
+   "cmd_ssh_forget_host_title": {
+      "message": "Egy megjegyzett ssh-gazdagép adatainak az elfelejtése."
+   },
+   "cmd_ssh_help": {
+      "message": "A |felhasznalonev| és |tarhelyszolgaltato| paramétereket kötelező, a |port| értékét nem kötelező megadni. Ha a port nincs meghatározva, akkor alapbeállítás szerint 22 lesz az értéke."
+   },
+   "cmd_ssh_title": {
+      "message": "Új SSH-munkamenet megnyitása."
+   },
+   "command_complete": {
+      "message": "A(z) $1 parancs a következő kimeneti kóddal ért véget: $2. Kérjük, zárja be az ablakot.",
+      "placeholders": {
+         "1": {
+            "content": "$1"
+         },
+         "2": {
+            "content": "$2"
+         }
+      }
+   },
+   "connect_button_label": {
+      "message": "Csatlakozás"
+   },
+   "connect_message": {
+      "message": "Adja meg a csatlakozási helyet."
+   },
+   "connecting": {
+      "message": "Csatlakozás a következőhöz: $1, port: $2...",
+      "placeholders": {
+         "1": {
+            "content": "$1"
+         },
+         "2": {
+            "content": "$2"
+         }
+      }
+   },
+   "destination_pattern": {
+      "message": "felhasznalonev@tarhelyszolgaltato[:port]"
+   },
+   "known_hosts_empty": {
+      "message": "Nem található megjegyzett gazdagép; nincs mit elfelejteni."
+   },
+   "known_hosts_prompt": {
+      "message": "Elfelejteni kívánt gazdagép kiválasztása [1--$1]:",
+      "placeholders": {
+         "1": {
+            "content": "$1"
+         }
+      }
+   },
+   "known_hosts_title": {
+      "message": "Ismert gazdagépek:"
+   },
+   "missing_param": {
+      "message": "Hiányzó paraméter: $1",
+      "placeholders": {
+         "1": {
+            "content": "$1"
+         }
+      }
+   },
+   "ok_button_label": {
+      "message": "OK"
+   },
+   "plugin_loading": {
+      "message": "Loading NaCl plugin..."
+   },
+   "plugin_loading_complete": {
+      "message": " done."
+   },
+   "unexpected_error": {
+      "message": "Váratlan hiba történt. A további részletekért nézze meg a JavaScript-konzolt."
+   },
+   "welcome": {
+      "message": "Üdvözöljük! Nyisson meg egy új SSH-kapcsolatot a \"Megnyitás\" paranccsal."
+   },
+   "welcome_tip": {
+      "message": "Profi tipp: elmentheti a munkamenetet egy böngésző könyvjelzőjeként."
+   }
+}

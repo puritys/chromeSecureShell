@@ -1,0 +1,99 @@
+{
+   "bad_destination": {
+      "message": "गंतव्य को पार्स करने में असमर्थ: $1",
+      "placeholders": {
+         "1": {
+            "content": "$1"
+         }
+      }
+   },
+   "before_unload": {
+      "message": "Closing this tab will disconnect this session."
+   },
+   "cancel_button_label": {
+      "message": "रद्द करें"
+   },
+   "cmd_ssh_forget_host_help": {
+      "message": "यह आदेश ज्ञात होस्ट के मेनू को प्रदर्शित करता हैं और होस्ट के लिए भूलने को इंगित करता है."
+   },
+   "cmd_ssh_forget_host_title": {
+      "message": "ज्ञात ssh होस्ट को भूलें."
+   },
+   "cmd_ssh_help": {
+      "message": "|username| और |hostname| पैरामीटर आवश्‍यक हैं, |port| वैकल्पिक है. यदि पोर्ट निर्दिष्ट न किया गया हो तो यह डिफ़ॉल्‍ट रूप से 22 होता है."
+   },
+   "cmd_ssh_title": {
+      "message": "नया SSH सत्र खोलता है."
+   },
+   "command_complete": {
+      "message": "आदेश $1 बाहर निकालने के कोड $2 के साथ पूर्ण हो गया है. कृपया इस विंडो को अपनी सुविधा के अनुसार बंद करें.",
+      "placeholders": {
+         "1": {
+            "content": "$1"
+         },
+         "2": {
+            "content": "$2"
+         }
+      }
+   },
+   "connect_button_label": {
+      "message": "कनेक्ट करें"
+   },
+   "connect_message": {
+      "message": "कृपया कनेक्ट करने के लिए कोई गंतव्य दर्ज करें."
+   },
+   "connecting": {
+      "message": "$1, पोर्ट $2 से कनेक्ट कर रहा है...",
+      "placeholders": {
+         "1": {
+            "content": "$1"
+         },
+         "2": {
+            "content": "$2"
+         }
+      }
+   },
+   "destination_pattern": {
+      "message": "username@hostname[:port]"
+   },
+   "known_hosts_empty": {
+      "message": "कोई ज्ञात होस्ट नहीं, भूलने के लिए कुछ नहीं."
+   },
+   "known_hosts_prompt": {
+      "message": "कृपया भूलने के लिए एक होस्ट का चयन करें [1-$1]:",
+      "placeholders": {
+         "1": {
+            "content": "$1"
+         }
+      }
+   },
+   "known_hosts_title": {
+      "message": "ज्ञात होस्ट:"
+   },
+   "missing_param": {
+      "message": "गुम पैरामीटर: $1",
+      "placeholders": {
+         "1": {
+            "content": "$1"
+         }
+      }
+   },
+   "ok_button_label": {
+      "message": "ठीक"
+   },
+   "plugin_loading": {
+      "message": "Loading NaCl plugin..."
+   },
+   "plugin_loading_complete": {
+      "message": " done."
+   },
+   "unexpected_error": {
+      "message": "एक अनेपक्षित त्रुटि हुई, कृपया अधिक विवरण के लिए JavaScript कंसोल जांचें."
+   },
+   "welcome": {
+      "message": "स्वागत है!  'खोलें' आदेश से नया ssh कनेक्शन खोलें."
+   },
+   "welcome_tip": {
+      "message": "प्रो युक्ति: आप इस सत्र को ब्राउज़र बुकमार्क के रूप में सहेज सकते हैं."
+   }
+}

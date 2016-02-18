@@ -1,0 +1,99 @@
+{
+   "bad_destination": {
+      "message": "Nepavyko išanalizuoti paskirties vietos: $1",
+      "placeholders": {
+         "1": {
+            "content": "$1"
+         }
+      }
+   },
+   "before_unload": {
+      "message": "Closing this tab will disconnect this session."
+   },
+   "cancel_button_label": {
+      "message": "Atšaukti"
+   },
+   "cmd_ssh_forget_host_help": {
+      "message": "Taikant šią komandą pateikiamas žinomų prieglobų meniu ir raginama pamiršti prieglobą."
+   },
+   "cmd_ssh_forget_host_title": {
+      "message": "Pamiršti žinomą ssh prieglobą."
+   },
+   "cmd_ssh_help": {
+      "message": "Būtina pateikti |naudotojo vardo| ir |prieglobos serverio pavadinimo| parametrus; |prievado| parametras pasirenkamas. Jei prievado nenurodysite, jo numatytasis parametras bus 22."
+   },
+   "cmd_ssh_title": {
+      "message": "Atidaroma nauja SSH sesija."
+   },
+   "command_complete": {
+      "message": "Komanda „$1“ užbaigta pateikiant išėjimo kodą $2. Kai turėsite laiko, uždarykite šį langą.",
+      "placeholders": {
+         "1": {
+            "content": "$1"
+         },
+         "2": {
+            "content": "$2"
+         }
+      }
+   },
+   "connect_button_label": {
+      "message": "Prisijungti"
+   },
+   "connect_message": {
+      "message": "Įveskite paskirties vietą, prie kurios reikia prisijungti."
+   },
+   "connecting": {
+      "message": "Prisijungiama prie $1; prievadas $2...",
+      "placeholders": {
+         "1": {
+            "content": "$1"
+         },
+         "2": {
+            "content": "$2"
+         }
+      }
+   },
+   "destination_pattern": {
+      "message": "naudotojovardas@prieglobosserveriopavadinimas[:prievadas]"
+   },
+   "known_hosts_empty": {
+      "message": "Nėra žinomų prieglobų; nėra, ką pamiršti."
+   },
+   "known_hosts_prompt": {
+      "message": "Pasirinkite prieglobą, kurią reikia pamiršti [1-$1]:",
+      "placeholders": {
+         "1": {
+            "content": "$1"
+         }
+      }
+   },
+   "known_hosts_title": {
+      "message": "Žinomos prieglobos:"
+   },
+   "missing_param": {
+      "message": "Trūksta parametro: $1",
+      "placeholders": {
+         "1": {
+            "content": "$1"
+         }
+      }
+   },
+   "ok_button_label": {
+      "message": "Gerai"
+   },
+   "plugin_loading": {
+      "message": "Loading NaCl plugin..."
+   },
+   "plugin_loading_complete": {
+      "message": " done."
+   },
+   "unexpected_error": {
+      "message": "Įvyko nenumatyta klaida; jei reikia daugiau išsamios informacijos, patikrinkite „JavaScript“ konsolę."
+   },
+   "welcome": {
+      "message": "Sveiki! Užmegzkite naują ssh ryšį taikydami komandą „atidaryti“."
+   },
+   "welcome_tip": {
+      "message": "Išankstinis patarimas: šią sesiją galite išsaugoti kaip naršyklės žymę."
+   }
+}

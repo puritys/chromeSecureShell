@@ -1,0 +1,99 @@
+{
+   "bad_destination": {
+      "message": "送信先を解析できません: $1",
+      "placeholders": {
+         "1": {
+            "content": "$1"
+         }
+      }
+   },
+   "before_unload": {
+      "message": "Closing this tab will disconnect this session."
+   },
+   "cancel_button_label": {
+      "message": "キャンセル"
+   },
+   "cmd_ssh_forget_host_help": {
+      "message": "このコマンドは、既知のホストの一覧と、削除対象ホストのプロンプトを表示します。"
+   },
+   "cmd_ssh_forget_host_title": {
+      "message": "既知の SSH ホストを削除します。"
+   },
+   "cmd_ssh_help": {
+      "message": "|username| パラメータと |hostname| パラメータは必須ですが、|port| は省略できます。ポートを指定しない場合は、デフォルト値の 22 が適用されます。"
+   },
+   "cmd_ssh_title": {
+      "message": "新しい SSH セッションを開きます。"
+   },
+   "command_complete": {
+      "message": "$1 コマンドは終了コード $2 で完了しました。このウィンドウはいつでも閉じることができます。",
+      "placeholders": {
+         "1": {
+            "content": "$1"
+         },
+         "2": {
+            "content": "$2"
+         }
+      }
+   },
+   "connect_button_label": {
+      "message": "接続"
+   },
+   "connect_message": {
+      "message": "接続先を入力してください。"
+   },
+   "connecting": {
+      "message": "ポート $2 で $1 に接続しています...",
+      "placeholders": {
+         "1": {
+            "content": "$1"
+         },
+         "2": {
+            "content": "$2"
+         }
+      }
+   },
+   "destination_pattern": {
+      "message": "username@hostname[:port]"
+   },
+   "known_hosts_empty": {
+      "message": "削除対象となる既知のホストがありません。"
+   },
+   "known_hosts_prompt": {
+      "message": "削除するホストを選択してください [1～$1]:",
+      "placeholders": {
+         "1": {
+            "content": "$1"
+         }
+      }
+   },
+   "known_hosts_title": {
+      "message": "既知のホスト:"
+   },
+   "missing_param": {
+      "message": "次のパラメータがありません: $1",
+      "placeholders": {
+         "1": {
+            "content": "$1"
+         }
+      }
+   },
+   "ok_button_label": {
+      "message": "OK"
+   },
+   "plugin_loading": {
+      "message": "Loading NaCl plugin..."
+   },
+   "plugin_loading_complete": {
+      "message": " done."
+   },
+   "unexpected_error": {
+      "message": "予期しないエラーが発生しました。詳しくは JavaScript コンソールをご確認ください。"
+   },
+   "welcome": {
+      "message": "ようこそ！「open」コマンドで新しい SSH 接続を開始してください。"
+   },
+   "welcome_tip": {
+      "message": "上級者向けヒント: このセッションはブラウザのブックマークとして保存できます。"
+   }
+}

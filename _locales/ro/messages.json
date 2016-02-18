@@ -1,0 +1,99 @@
+{
+   "bad_destination": {
+      "message": "Nu se poate analiza destinaţia: $1",
+      "placeholders": {
+         "1": {
+            "content": "$1"
+         }
+      }
+   },
+   "before_unload": {
+      "message": "Closing this tab will disconnect this session."
+   },
+   "cancel_button_label": {
+      "message": "Anulaţi"
+   },
+   "cmd_ssh_forget_host_help": {
+      "message": "Această comandă afişează un meniu cu gazde cunoscute şi solicită gazda de şters."
+   },
+   "cmd_ssh_forget_host_title": {
+      "message": "Ştergeţi o gazdă SSH cunoscută."
+   },
+   "cmd_ssh_help": {
+      "message": "Parametrii |username| şi |hostname| sunt obligatorii, dar parametrul |port| este opţional. Dacă portul nu este specificat, valoarea prestabilită pentru acesta este 22."
+   },
+   "cmd_ssh_title": {
+      "message": "Deschide o sesiune SSH nouă."
+   },
+   "command_complete": {
+      "message": "Comanda $1 s-a finalizat cu codul de ieşire $2. Puteţi închideţi această fereastră când doriţi.",
+      "placeholders": {
+         "1": {
+            "content": "$1"
+         },
+         "2": {
+            "content": "$2"
+         }
+      }
+   },
+   "connect_button_label": {
+      "message": "Conectaţi-vă"
+   },
+   "connect_message": {
+      "message": "Introduceţi o destinaţie la care să vă conectaţi."
+   },
+   "connecting": {
+      "message": "Se conectează la $1, port $2...",
+      "placeholders": {
+         "1": {
+            "content": "$1"
+         },
+         "2": {
+            "content": "$2"
+         }
+      }
+   },
+   "destination_pattern": {
+      "message": "numeutilizator@numegazdă[:port]"
+   },
+   "known_hosts_empty": {
+      "message": "Nu există gazde cunoscute pe care să le ştergeţi."
+   },
+   "known_hosts_prompt": {
+      "message": "Selectaţi o gazdă pe care să o ştergeţi [1 – $1]:",
+      "placeholders": {
+         "1": {
+            "content": "$1"
+         }
+      }
+   },
+   "known_hosts_title": {
+      "message": "Gazde cunoscute:"
+   },
+   "missing_param": {
+      "message": "Lipseşte parametrul: $1",
+      "placeholders": {
+         "1": {
+            "content": "$1"
+         }
+      }
+   },
+   "ok_button_label": {
+      "message": "OK"
+   },
+   "plugin_loading": {
+      "message": "Loading NaCl plugin..."
+   },
+   "plugin_loading_complete": {
+      "message": " done."
+   },
+   "unexpected_error": {
+      "message": "A apărut o eroare neaşteptată. Consultaţi consola JavaScript pentru mai multe detalii."
+   },
+   "welcome": {
+      "message": "Bun venit! Deschideţi o conexiune SSH nouă cu comanda „open”."
+   },
+   "welcome_tip": {
+      "message": "Sfat: puteţi salva această sesiune ca marcaj în browser."
+   }
+}

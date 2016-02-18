@@ -1,0 +1,99 @@
+{
+   "bad_destination": {
+      "message": "Não é possível analisar o destino: $1",
+      "placeholders": {
+         "1": {
+            "content": "$1"
+         }
+      }
+   },
+   "before_unload": {
+      "message": "Closing this tab will disconnect this session."
+   },
+   "cancel_button_label": {
+      "message": "Cancelar"
+   },
+   "cmd_ssh_forget_host_help": {
+      "message": "Este comando apresenta um menu de anfitriões conhecidos e solicita ao anfitrião que esqueça."
+   },
+   "cmd_ssh_forget_host_title": {
+      "message": "Esquecer um anfitrião SSH conhecido."
+   },
+   "cmd_ssh_help": {
+      "message": "Os parâmetros |username| e |hostname| são obrigatórios, |port| é opcional. Se a porta não for especificada, é aplicada a predefinição de 22."
+   },
+   "cmd_ssh_title": {
+      "message": "Abre uma nova sessão SSH."
+   },
+   "command_complete": {
+      "message": "O comando $1 foi concluído com o código de saída $2. Feche esta janela quando pretender.",
+      "placeholders": {
+         "1": {
+            "content": "$1"
+         },
+         "2": {
+            "content": "$2"
+         }
+      }
+   },
+   "connect_button_label": {
+      "message": "Ligar"
+   },
+   "connect_message": {
+      "message": "Introduza um destino para a ligação."
+   },
+   "connecting": {
+      "message": "A ligar a $1, porta $2...",
+      "placeholders": {
+         "1": {
+            "content": "$1"
+         },
+         "2": {
+            "content": "$2"
+         }
+      }
+   },
+   "destination_pattern": {
+      "message": "username@hostname[:porta]"
+   },
+   "known_hosts_empty": {
+      "message": "Sem anfitriões conhecidos, nada a esquecer."
+   },
+   "known_hosts_prompt": {
+      "message": "Selecione um anfitrião a esquecer [1-$1]:",
+      "placeholders": {
+         "1": {
+            "content": "$1"
+         }
+      }
+   },
+   "known_hosts_title": {
+      "message": "Anfitriões conhecidos:"
+   },
+   "missing_param": {
+      "message": "Parâmetro em falta: $1",
+      "placeholders": {
+         "1": {
+            "content": "$1"
+         }
+      }
+   },
+   "ok_button_label": {
+      "message": "OK"
+   },
+   "plugin_loading": {
+      "message": "Loading NaCl plugin..."
+   },
+   "plugin_loading_complete": {
+      "message": " done."
+   },
+   "unexpected_error": {
+      "message": "Ocorreu um erro inesperado, verifique a consola de JavaScript para obter mais detalhes."
+   },
+   "welcome": {
+      "message": "Bem-vindo! Abra uma nova ligação ssh com o comando \"abrir\""
+   },
+   "welcome_tip": {
+      "message": "Sugestão Pro: pode guardar esta sessão como marcador do navegador."
+   }
+}

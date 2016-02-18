@@ -1,0 +1,99 @@
+{
+   "bad_destination": {
+      "message": "Sihtkohta ei saa sõeluda: $1",
+      "placeholders": {
+         "1": {
+            "content": "$1"
+         }
+      }
+   },
+   "before_unload": {
+      "message": "Closing this tab will disconnect this session."
+   },
+   "cancel_button_label": {
+      "message": "Tühista"
+   },
+   "cmd_ssh_forget_host_help": {
+      "message": "Käsk kuvab teadaolevate hostide menüü ja kuvab unustatava hosti kohta viiba."
+   },
+   "cmd_ssh_forget_host_title": {
+      "message": "Unustab teadaoleva SSH-hosti."
+   },
+   "cmd_ssh_help": {
+      "message": "Parameetrid |username| ja |hostname| on kohustuslikud, |port| on valikuline. Kui jätate pordi määramata, siis kasutatakse vaikeväärtust 22."
+   },
+   "cmd_ssh_title": {
+      "message": "Avab uue SSH-seansi."
+   },
+   "command_complete": {
+      "message": "Käsk $1 jõudis lõpule väljumiskoodiga $2.  Võite akna sulgeda.",
+      "placeholders": {
+         "1": {
+            "content": "$1"
+         },
+         "2": {
+            "content": "$2"
+         }
+      }
+   },
+   "connect_button_label": {
+      "message": "Ühenda"
+   },
+   "connect_message": {
+      "message": "Sisestage sihtkoht, millega ühendus luua."
+   },
+   "connecting": {
+      "message": "Ühendamine: $1, port $2 ...",
+      "placeholders": {
+         "1": {
+            "content": "$1"
+         },
+         "2": {
+            "content": "$2"
+         }
+      }
+   },
+   "destination_pattern": {
+      "message": "kasutajanimi@hostinimi [:port]"
+   },
+   "known_hosts_empty": {
+      "message": "Teadaolevaid hoste ei ole, seetõttu ei saa neid unustada."
+   },
+   "known_hosts_prompt": {
+      "message": "Valige host, mida unustada [1–$1]:",
+      "placeholders": {
+         "1": {
+            "content": "$1"
+         }
+      }
+   },
+   "known_hosts_title": {
+      "message": "Teadaolevad hostid:"
+   },
+   "missing_param": {
+      "message": "Puudub parameeter: $1",
+      "placeholders": {
+         "1": {
+            "content": "$1"
+         }
+      }
+   },
+   "ok_button_label": {
+      "message": "OK"
+   },
+   "plugin_loading": {
+      "message": "Loading NaCl plugin..."
+   },
+   "plugin_loading_complete": {
+      "message": " done."
+   },
+   "unexpected_error": {
+      "message": "Ilmnes ootamatu tõrge, vaadake üksikasju JavaScripti konsoolist."
+   },
+   "welcome": {
+      "message": "Tere tulemast! Avage uus SSH-ühendus käsuga „open”."
+   },
+   "welcome_tip": {
+      "message": "Asjatundja nõuanne: saate seansi salvestada brauseri järjehoidjana."
+   }
+}

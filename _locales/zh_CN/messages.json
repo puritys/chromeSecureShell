@@ -1,0 +1,99 @@
+{
+   "bad_destination": {
+      "message": "无法解析目标：$1",
+      "placeholders": {
+         "1": {
+            "content": "$1"
+         }
+      }
+   },
+   "before_unload": {
+      "message": "Closing this tab will disconnect this session."
+   },
+   "cancel_button_label": {
+      "message": "取消"
+   },
+   "cmd_ssh_forget_host_help": {
+      "message": "此命令用于显示已知主机的菜单并提示您要删除的主机。"
+   },
+   "cmd_ssh_forget_host_title": {
+      "message": "删除已知 SSH 主机。"
+   },
+   "cmd_ssh_help": {
+      "message": "|username| 和 |hostname| 为必需参数，|port| 为可选参数。如果未指定端口，那么其默认值为 22。"
+   },
+   "cmd_ssh_title": {
+      "message": "打开新的 SSH 会话。"
+   },
+   "command_complete": {
+      "message": "命令“$1”已通过退出代码 $2 完成。您可以随时关闭此窗口。",
+      "placeholders": {
+         "1": {
+            "content": "$1"
+         },
+         "2": {
+            "content": "$2"
+         }
+      }
+   },
+   "connect_button_label": {
+      "message": "连接"
+   },
+   "connect_message": {
+      "message": "请输入连接目标。"
+   },
+   "connecting": {
+      "message": "正在连接 $1，端口为 $2...",
+      "placeholders": {
+         "1": {
+            "content": "$1"
+         },
+         "2": {
+            "content": "$2"
+         }
+      }
+   },
+   "destination_pattern": {
+      "message": "username@hostname[:port]"
+   },
+   "known_hosts_empty": {
+      "message": "无已知主机，因此没有主机可删除。"
+   },
+   "known_hosts_prompt": {
+      "message": "请选择要删除的主机 [1-$1]：",
+      "placeholders": {
+         "1": {
+            "content": "$1"
+         }
+      }
+   },
+   "known_hosts_title": {
+      "message": "已知主机："
+   },
+   "missing_param": {
+      "message": "缺少参数：$1",
+      "placeholders": {
+         "1": {
+            "content": "$1"
+         }
+      }
+   },
+   "ok_button_label": {
+      "message": "确定"
+   },
+   "plugin_loading": {
+      "message": "Loading NaCl plugin..."
+   },
+   "plugin_loading_complete": {
+      "message": " done."
+   },
+   "unexpected_error": {
+      "message": "发生意外错误。有关详情，请查看 JavaScript 控制台。"
+   },
+   "welcome": {
+      "message": "欢迎使用本程序！请使用“open”命令建立新的 SSH 连接。"
+   },
+   "welcome_tip": {
+      "message": "专业版提示：您可以将此会话保存为浏览器书签。"
+   }
+}

@@ -1,0 +1,99 @@
+{
+   "bad_destination": {
+      "message": "다음 대상을 파싱할 수 없음: $1",
+      "placeholders": {
+         "1": {
+            "content": "$1"
+         }
+      }
+   },
+   "before_unload": {
+      "message": "Closing this tab will disconnect this session."
+   },
+   "cancel_button_label": {
+      "message": "취소"
+   },
+   "cmd_ssh_forget_host_help": {
+      "message": "이 명령은 알려진 호스트의 메뉴를 표시하고 삭제할 호스트를 요청합니다."
+   },
+   "cmd_ssh_forget_host_title": {
+      "message": "알려진 ssh 호스트는 삭제합니다."
+   },
+   "cmd_ssh_help": {
+      "message": "|username| 및 |hostname| 매개변수가 필요하며 |port|는 선택사항입니다. 포트가 지정되지 않은 경우 22로 기본 지정됩니다."
+   },
+   "cmd_ssh_title": {
+      "message": "새로운 ssh 세션을 엽니다."
+   },
+   "command_complete": {
+      "message": "$1 명령이 $2 종료 코드로 완료되었습니다. 편하신 때에 이 창을 닫아주시기 바랍니다.",
+      "placeholders": {
+         "1": {
+            "content": "$1"
+         },
+         "2": {
+            "content": "$2"
+         }
+      }
+   },
+   "connect_button_label": {
+      "message": "연결"
+   },
+   "connect_message": {
+      "message": "연결하려는 대상을 입력하세요."
+   },
+   "connecting": {
+      "message": "$1, $2 포트로 연결 중...",
+      "placeholders": {
+         "1": {
+            "content": "$1"
+         },
+         "2": {
+            "content": "$2"
+         }
+      }
+   },
+   "destination_pattern": {
+      "message": "username@hostname[:port]"
+   },
+   "known_hosts_empty": {
+      "message": "알려진 호스트가 없고, 삭제할 것이 없습니다."
+   },
+   "known_hosts_prompt": {
+      "message": "[1-$1]를 삭제하려면 호스트를 선택하세요.",
+      "placeholders": {
+         "1": {
+            "content": "$1"
+         }
+      }
+   },
+   "known_hosts_title": {
+      "message": "알려진 호스트:"
+   },
+   "missing_param": {
+      "message": "누락된 매개변수: $1",
+      "placeholders": {
+         "1": {
+            "content": "$1"
+         }
+      }
+   },
+   "ok_button_label": {
+      "message": "확인"
+   },
+   "plugin_loading": {
+      "message": "Loading NaCl plugin..."
+   },
+   "plugin_loading_complete": {
+      "message": " done."
+   },
+   "unexpected_error": {
+      "message": "예기치 않은 오류가 발생했습니다. 더 자세한 정보를 보려면 자바스크립트 콘솔을 확인하시기 바랍니다."
+   },
+   "welcome": {
+      "message": "환영합니다. '열기' 명령으로 새로운 ssh 연결을 여세요."
+   },
+   "welcome_tip": {
+      "message": "프로 팁: 브라우저 북마크로 이 세션을 저장할 수 있습니다."
+   }
+}

@@ -1,0 +1,99 @@
+{
+   "bad_destination": {
+      "message": "Impossible d'analyser la destination $1.",
+      "placeholders": {
+         "1": {
+            "content": "$1"
+         }
+      }
+   },
+   "before_unload": {
+      "message": "Closing this tab will disconnect this session."
+   },
+   "cancel_button_label": {
+      "message": "Annuler"
+   },
+   "cmd_ssh_forget_host_help": {
+      "message": "Cette commande permet d'afficher un menu répertoriant les invites et les hôtes connus que l'hôte doit supprimer."
+   },
+   "cmd_ssh_forget_host_title": {
+      "message": "Supprimer un hôte SSH connu"
+   },
+   "cmd_ssh_help": {
+      "message": "Les paramètres |username| et |hostname| sont obligatoires. Le paramètre |port| est facultatif. Si celui-ci n'est pas spécifié, la valeur \"22\" est utilisée par défaut."
+   },
+   "cmd_ssh_title": {
+      "message": "Ouvrir une nouvelle session SSH"
+   },
+   "command_complete": {
+      "message": "Commande \"$1\" terminée (code de sortie : $2). Vous pouvez fermer cette fenêtre à tout moment.",
+      "placeholders": {
+         "1": {
+            "content": "$1"
+         },
+         "2": {
+            "content": "$2"
+         }
+      }
+   },
+   "connect_button_label": {
+      "message": "Connexion"
+   },
+   "connect_message": {
+      "message": "Veuillez indiquer une destination à laquelle vous connecter."
+   },
+   "connecting": {
+      "message": "Connexion à $1 via le port $2 en cours…",
+      "placeholders": {
+         "1": {
+            "content": "$1"
+         },
+         "2": {
+            "content": "$2"
+         }
+      }
+   },
+   "destination_pattern": {
+      "message": "nomutilisateur@nomhôte[:port]"
+   },
+   "known_hosts_empty": {
+      "message": "Aucun hôte connu. Il n'y a rien à supprimer."
+   },
+   "known_hosts_prompt": {
+      "message": "Veuillez sélectionner un hôte à supprimer [1-$1] :",
+      "placeholders": {
+         "1": {
+            "content": "$1"
+         }
+      }
+   },
+   "known_hosts_title": {
+      "message": "Hôtes connus :"
+   },
+   "missing_param": {
+      "message": "Paramètre manquant : $1.",
+      "placeholders": {
+         "1": {
+            "content": "$1"
+         }
+      }
+   },
+   "ok_button_label": {
+      "message": "OK"
+   },
+   "plugin_loading": {
+      "message": "Loading NaCl plugin..."
+   },
+   "plugin_loading_complete": {
+      "message": " done."
+   },
+   "unexpected_error": {
+      "message": "Une erreur inattendue s'est produite. Pour plus d'informations, veuillez consulter la console JavaScript."
+   },
+   "welcome": {
+      "message": "Bienvenue ! Ouvrez une nouvelle connexion SSH à l'aide de la commande \"open\"."
+   },
+   "welcome_tip": {
+      "message": "Astuce : Vous pouvez ajouter cette session aux favoris de votre navigateur."
+   }
+}

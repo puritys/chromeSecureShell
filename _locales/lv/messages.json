@@ -1,0 +1,99 @@
+{
+   "bad_destination": {
+      "message": "Nevar parsēt galamērķi: $1",
+      "placeholders": {
+         "1": {
+            "content": "$1"
+         }
+      }
+   },
+   "before_unload": {
+      "message": "Closing this tab will disconnect this session."
+   },
+   "cancel_button_label": {
+      "message": "Atcelt"
+   },
+   "cmd_ssh_forget_host_help": {
+      "message": "Šī komanda parāda zināmo saimniekdatoru sarakstu un pieprasa norādīt saimniekdatoru, kas jāaizmirst."
+   },
+   "cmd_ssh_forget_host_title": {
+      "message": "Aizmirst zināmo ssh saimniekdatoru."
+   },
+   "cmd_ssh_help": {
+      "message": "|username| un |hostname| ir obligāti, |port| ir izvēles.  Ja pieslēgvieta netiek norādīta, tās noklusējums ir 22."
+   },
+   "cmd_ssh_title": {
+      "message": "Atver jaunu SSH sesiju."
+   },
+   "command_complete": {
+      "message": "Komanda $1 izpildīta ar izejas kodu $2. Aizveriet šos logus, kad jums ir brīvs brīdis.",
+      "placeholders": {
+         "1": {
+            "content": "$1"
+         },
+         "2": {
+            "content": "$2"
+         }
+      }
+   },
+   "connect_button_label": {
+      "message": "Izveidot savienojumu"
+   },
+   "connect_message": {
+      "message": "Ievadiet galamērķi, ar ko jāizveido savienojums."
+   },
+   "connecting": {
+      "message": "Notiek savienojuma izveide ar $1, pieslēgvietu $2...",
+      "placeholders": {
+         "1": {
+            "content": "$1"
+         },
+         "2": {
+            "content": "$2"
+         }
+      }
+   },
+   "destination_pattern": {
+      "message": "lietotajvards@saimniekdators[:pieslēgvieta]"
+   },
+   "known_hosts_empty": {
+      "message": "Nav neviena zināma saimniekdatora; nav, ko aizmirst."
+   },
+   "known_hosts_prompt": {
+      "message": "Atlasiet saimniekdatoru, kas jāaizmirst [1-$1]:",
+      "placeholders": {
+         "1": {
+            "content": "$1"
+         }
+      }
+   },
+   "known_hosts_title": {
+      "message": "Zināmie saimniekdatori:"
+   },
+   "missing_param": {
+      "message": "Trūkstošais parametrs: $1",
+      "placeholders": {
+         "1": {
+            "content": "$1"
+         }
+      }
+   },
+   "ok_button_label": {
+      "message": "Labi"
+   },
+   "plugin_loading": {
+      "message": "Loading NaCl plugin..."
+   },
+   "plugin_loading_complete": {
+      "message": " done."
+   },
+   "unexpected_error": {
+      "message": "Radās neparedzēta kļūda. Plašāku informāciju skatiet JavaScript konsolē."
+   },
+   "welcome": {
+      "message": "Laipni lūdzam! Atveriet jaunu ssh savienojumu ar komandu “open”."
+   },
+   "welcome_tip": {
+      "message": "Profesionāls padoms: varat saglabāt šo sesiju kā pārlūka grāmatzīmi."
+   }
+}

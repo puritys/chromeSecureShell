@@ -1,0 +1,99 @@
+{
+   "bad_destination": {
+      "message": "Nelze analyzovat cíl: $1",
+      "placeholders": {
+         "1": {
+            "content": "$1"
+         }
+      }
+   },
+   "before_unload": {
+      "message": "Closing this tab will disconnect this session."
+   },
+   "cancel_button_label": {
+      "message": "Zrušit"
+   },
+   "cmd_ssh_forget_host_help": {
+      "message": "Tento příkaz zobrazuje nabídku známých hostitelů a výzvy k zapomenutí hostitelů."
+   },
+   "cmd_ssh_forget_host_title": {
+      "message": "Zapomenout známého hostitele SSH."
+   },
+   "cmd_ssh_help": {
+      "message": "Parametry |username| a |hostname| jsou povinné, parametr |port| je volitelný. Pokud není zadán port, bude jeho výchozí hodnota nastavena na 22."
+   },
+   "cmd_ssh_title": {
+      "message": "Zahájení nové relace SSH."
+   },
+   "command_complete": {
+      "message": "Příkaz $1 byl dokončen s ukončovacím kódem $2. Toto okno můžete zavřít.",
+      "placeholders": {
+         "1": {
+            "content": "$1"
+         },
+         "2": {
+            "content": "$2"
+         }
+      }
+   },
+   "connect_button_label": {
+      "message": "Připojit"
+   },
+   "connect_message": {
+      "message": "Zadejte prosím cíl, ke kterému se chcete připojit."
+   },
+   "connecting": {
+      "message": "Připojování k hostiteli $1, port $2...",
+      "placeholders": {
+         "1": {
+            "content": "$1"
+         },
+         "2": {
+            "content": "$2"
+         }
+      }
+   },
+   "destination_pattern": {
+      "message": "uzivatelskejmeno@nazevhostitele[:port]"
+   },
+   "known_hosts_empty": {
+      "message": "Žádní známí hostitelé, které by bylo možné zapomenout."
+   },
+   "known_hosts_prompt": {
+      "message": "Vyberte hostitele, kterého chcete zapomenout [1–$1]:",
+      "placeholders": {
+         "1": {
+            "content": "$1"
+         }
+      }
+   },
+   "known_hosts_title": {
+      "message": "Známí hostitelé:"
+   },
+   "missing_param": {
+      "message": "Chybí parametr: $1",
+      "placeholders": {
+         "1": {
+            "content": "$1"
+         }
+      }
+   },
+   "ok_button_label": {
+      "message": "OK"
+   },
+   "plugin_loading": {
+      "message": "Loading NaCl plugin..."
+   },
+   "plugin_loading_complete": {
+      "message": " done."
+   },
+   "unexpected_error": {
+      "message": "Došlo k neočekávané chybě. Další informace naleznete v konzole JavaScriptu."
+   },
+   "welcome": {
+      "message": "Vítejte! Pomocí příkazu 'open' spustíte nové připojení SSH."
+   },
+   "welcome_tip": {
+      "message": "Tip pro profesionály: Tuto relaci můžete uložit jako záložku prohlížeče."
+   }
+}

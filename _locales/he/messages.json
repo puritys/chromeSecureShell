@@ -1,0 +1,99 @@
+{
+   "bad_destination": {
+      "message": "לא ניתן לנתח יעד: $1",
+      "placeholders": {
+         "1": {
+            "content": "$1"
+         }
+      }
+   },
+   "before_unload": {
+      "message": "Closing this tab will disconnect this session."
+   },
+   "cancel_button_label": {
+      "message": "ביטול"
+   },
+   "cmd_ssh_forget_host_help": {
+      "message": "פקודה זו מציגה תפריט של מארחים ידועים ומבקשת מהמארח לשכוח."
+   },
+   "cmd_ssh_forget_host_title": {
+      "message": "שכח מארח ssh ידוע."
+   },
+   "cmd_ssh_help": {
+      "message": "הפרמטרים |שם משתמש| ו|שם מארח| נדרשים, הפרמטר |יציאה| הוא אופציונלי. אם היציאה אינה מצוינת, היא מוגדרת ל-22 כברירת מחדל."
+   },
+   "cmd_ssh_title": {
+      "message": "פותח הפעלת SSH חדשה."
+   },
+   "command_complete": {
+      "message": "הפקודה $1 הושלמה באמצעות קוד היציאה $2.  סגור חלון זה כשתתפנה.",
+      "placeholders": {
+         "1": {
+            "content": "$1"
+         },
+         "2": {
+            "content": "$2"
+         }
+      }
+   },
+   "connect_button_label": {
+      "message": "התחבר"
+   },
+   "connect_message": {
+      "message": "הזן יעד שברצונך להתחבר אליו."
+   },
+   "connecting": {
+      "message": "התחברות אל $1, יציאה $2...",
+      "placeholders": {
+         "1": {
+            "content": "$1"
+         },
+         "2": {
+            "content": "$2"
+         }
+      }
+   },
+   "destination_pattern": {
+      "message": "username@hostname[:port]‎"
+   },
+   "known_hosts_empty": {
+      "message": "אין מארחים ידועים, אין מה לשכוח."
+   },
+   "known_hosts_prompt": {
+      "message": "בחר מארח כדי לשכוח [1 - $1]:",
+      "placeholders": {
+         "1": {
+            "content": "$1"
+         }
+      }
+   },
+   "known_hosts_title": {
+      "message": "מארחים ידועים:"
+   },
+   "missing_param": {
+      "message": "פרמטר חסר: $1",
+      "placeholders": {
+         "1": {
+            "content": "$1"
+         }
+      }
+   },
+   "ok_button_label": {
+      "message": "אישור"
+   },
+   "plugin_loading": {
+      "message": "Loading NaCl plugin..."
+   },
+   "plugin_loading_complete": {
+      "message": " done."
+   },
+   "unexpected_error": {
+      "message": "אירעה שגיאה לא צפויה, בדוק את לוח Javascript לקבלת פרטים נוספים."
+   },
+   "welcome": {
+      "message": "ברוכים הבאים! פתח חיבור ssh חדש באמצעות הפקודה 'פתח'."
+   },
+   "welcome_tip": {
+      "message": "טיפ ממומחה: תוכל לשמור על הפעלה זו כסימניה בדפדפן."
+   }
+}

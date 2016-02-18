@@ -1,0 +1,99 @@
+{
+   "bad_destination": {
+      "message": "無法剖析以下目的位址：$1",
+      "placeholders": {
+         "1": {
+            "content": "$1"
+         }
+      }
+   },
+   "before_unload": {
+      "message": "Closing this tab will disconnect this session."
+   },
+   "cancel_button_label": {
+      "message": "取消"
+   },
+   "cmd_ssh_forget_host_help": {
+      "message": "這個指令會顯示已知主機的選單以及刪除主機的提示。"
+   },
+   "cmd_ssh_forget_host_title": {
+      "message": "刪除已知的 SSH 主機。"
+   },
+   "cmd_ssh_help": {
+      "message": "|username| 和 |hostname| 是必要參數，|port| 則可選用。如果未指定通訊埠，預設值為 22。"
+   },
+   "cmd_ssh_title": {
+      "message": "開啟新的 SSH 工作階段。"
+   },
+   "command_complete": {
+      "message": "$1 指令完成，傳回結束代碼 $2。您隨時可以關閉這個視窗。",
+      "placeholders": {
+         "1": {
+            "content": "$1"
+         },
+         "2": {
+            "content": "$2"
+         }
+      }
+   },
+   "connect_button_label": {
+      "message": "連線"
+   },
+   "connect_message": {
+      "message": "請輸入要連線的目的位址。"
+   },
+   "connecting": {
+      "message": "正在連線至 $1，通訊埠：$2...",
+      "placeholders": {
+         "1": {
+            "content": "$1"
+         },
+         "2": {
+            "content": "$2"
+         }
+      }
+   },
+   "destination_pattern": {
+      "message": "username@hostname[:port]"
+   },
+   "known_hosts_empty": {
+      "message": "沒有任何已知的主機可刪除。"
+   },
+   "known_hosts_prompt": {
+      "message": "請選取要刪除的主機 [1-$1]：",
+      "placeholders": {
+         "1": {
+            "content": "$1"
+         }
+      }
+   },
+   "known_hosts_title": {
+      "message": "已知的主機："
+   },
+   "missing_param": {
+      "message": "找不到以下參數：$1",
+      "placeholders": {
+         "1": {
+            "content": "$1"
+         }
+      }
+   },
+   "ok_button_label": {
+      "message": "確定"
+   },
+   "plugin_loading": {
+      "message": "Loading NaCl plugin..."
+   },
+   "plugin_loading_complete": {
+      "message": " done."
+   },
+   "unexpected_error": {
+      "message": "發生未預期的錯誤，請查看 JavaScript 控制台瞭解詳情。"
+   },
+   "welcome": {
+      "message": "歡迎使用！請使用 open 指令開啟新的 SSH 連線。"
+   },
+   "welcome_tip": {
+      "message": "專家提示：您可以將這個工作階段儲存為瀏覽器書籤。"
+   }
+}

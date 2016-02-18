@@ -1,0 +1,99 @@
+{
+   "bad_destination": {
+      "message": "Није могуће рашчланити одредиште: $1",
+      "placeholders": {
+         "1": {
+            "content": "$1"
+         }
+      }
+   },
+   "before_unload": {
+      "message": "Closing this tab will disconnect this session."
+   },
+   "cancel_button_label": {
+      "message": "Откажи"
+   },
+   "cmd_ssh_forget_host_help": {
+      "message": "Ова команда приказује мени познатих хостова и упита за хост који желите да заборавите."
+   },
+   "cmd_ssh_forget_host_title": {
+      "message": "Заборављање познатог ssh хоста."
+   },
+   "cmd_ssh_help": {
+      "message": "Параметри |username| и |hostname| су обавезни, а параметар |port| је опционалан. Ако није наведен порт, додељује се подразумевана вредност 22."
+   },
+   "cmd_ssh_title": {
+      "message": "Отварање нове SSH сесије."
+   },
+   "command_complete": {
+      "message": "Команда $1 је довршена излазним кодом $2. Затворите прозор када желите.",
+      "placeholders": {
+         "1": {
+            "content": "$1"
+         },
+         "2": {
+            "content": "$2"
+         }
+      }
+   },
+   "connect_button_label": {
+      "message": "Повежи"
+   },
+   "connect_message": {
+      "message": "Унесите одредиште са којим желите да повежете."
+   },
+   "connecting": {
+      "message": "Повезивање са хостом $1, порт $2...",
+      "placeholders": {
+         "1": {
+            "content": "$1"
+         },
+         "2": {
+            "content": "$2"
+         }
+      }
+   },
+   "destination_pattern": {
+      "message": "korisnickoime@nazivhosta[:port]"
+   },
+   "known_hosts_empty": {
+      "message": "Нема познатих хостова, нема ничега за заборављање."
+   },
+   "known_hosts_prompt": {
+      "message": "Изаберите хост који желите да заборавите [1–$1]:",
+      "placeholders": {
+         "1": {
+            "content": "$1"
+         }
+      }
+   },
+   "known_hosts_title": {
+      "message": "Познати хостови:"
+   },
+   "missing_param": {
+      "message": "Недостаје параметар: $1",
+      "placeholders": {
+         "1": {
+            "content": "$1"
+         }
+      }
+   },
+   "ok_button_label": {
+      "message": "Потврди"
+   },
+   "plugin_loading": {
+      "message": "Loading NaCl plugin..."
+   },
+   "plugin_loading_complete": {
+      "message": " done."
+   },
+   "unexpected_error": {
+      "message": "Дошло је до неочекиване грешке. Више детаља потражите у JavaScript конзоли."
+   },
+   "welcome": {
+      "message": "Добро дошли! Отворите нову ssh везу помоћу команде „отвори“."
+   },
+   "welcome_tip": {
+      "message": "Савет стручњака: Можете да сачувате ову сесију као обележивач прегледача."
+   }
+}

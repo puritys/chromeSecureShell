@@ -1,0 +1,99 @@
+{
+   "bad_destination": {
+      "message": "Не удалось выполнить синтаксический анализ: $1",
+      "placeholders": {
+         "1": {
+            "content": "$1"
+         }
+      }
+   },
+   "before_unload": {
+      "message": "Closing this tab will disconnect this session."
+   },
+   "cancel_button_label": {
+      "message": "Отмена"
+   },
+   "cmd_ssh_forget_host_help": {
+      "message": "С помощью этой команды вызывается список хостов и отправляются запросы на их удаление."
+   },
+   "cmd_ssh_forget_host_title": {
+      "message": "Удаление хоста SSH."
+   },
+   "cmd_ssh_help": {
+      "message": "Параметры |username| и |hostname| являются обязательными, а |port| – факультативным. Если порт не указан, то по умолчанию ставится значение 22."
+   },
+   "cmd_ssh_title": {
+      "message": "Открытие SSH-сеанса."
+   },
+   "command_complete": {
+      "message": "Команда $1 завершилась кодом $2. Закройте окно.",
+      "placeholders": {
+         "1": {
+            "content": "$1"
+         },
+         "2": {
+            "content": "$2"
+         }
+      }
+   },
+   "connect_button_label": {
+      "message": "Подключить"
+   },
+   "connect_message": {
+      "message": "Введите данные для подключения."
+   },
+   "connecting": {
+      "message": "Подключение к $1, порт $2...",
+      "placeholders": {
+         "1": {
+            "content": "$1"
+         },
+         "2": {
+            "content": "$2"
+         }
+      }
+   },
+   "destination_pattern": {
+      "message": "imya_polzovatelya@imya_hosta[:port]"
+   },
+   "known_hosts_empty": {
+      "message": "Невозможно удалить. Хостов нет."
+   },
+   "known_hosts_prompt": {
+      "message": "Укажите хост для удаления [1–$1]:",
+      "placeholders": {
+         "1": {
+            "content": "$1"
+         }
+      }
+   },
+   "known_hosts_title": {
+      "message": "Список хостов:"
+   },
+   "missing_param": {
+      "message": "Отсутствует параметр: $1",
+      "placeholders": {
+         "1": {
+            "content": "$1"
+         }
+      }
+   },
+   "ok_button_label": {
+      "message": "ОК"
+   },
+   "plugin_loading": {
+      "message": "Loading NaCl plugin..."
+   },
+   "plugin_loading_complete": {
+      "message": " done."
+   },
+   "unexpected_error": {
+      "message": "Произошла непредвиденная ошибка. Дополнительную информацию можно найти в Консоли JavaScript."
+   },
+   "welcome": {
+      "message": "Добро пожаловать! Чтобы установить SSH-соединение, выполните команду open."
+   },
+   "welcome_tip": {
+      "message": "Совет. Вы можете создать закладку для этого сеанса."
+   }
+}

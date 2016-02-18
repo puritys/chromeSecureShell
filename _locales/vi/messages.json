@@ -1,0 +1,99 @@
+{
+   "bad_destination": {
+      "message": "Không thể phân tích cú pháp đích: $1",
+      "placeholders": {
+         "1": {
+            "content": "$1"
+         }
+      }
+   },
+   "before_unload": {
+      "message": "Closing this tab will disconnect this session."
+   },
+   "cancel_button_label": {
+      "message": "Hủy"
+   },
+   "cmd_ssh_forget_host_help": {
+      "message": "Lệnh này hiển thị trình đơn các máy chủ đã biết và lời nhắc máy chủ cần bỏ qua."
+   },
+   "cmd_ssh_forget_host_title": {
+      "message": "Bỏ qua máy chủ ssh đã biết."
+   },
+   "cmd_ssh_help": {
+      "message": "Các tham số |username| và |hostname| là bắt buộc, |port| là tùy chọn.  Nếu không được chỉ định, cổng sẽ được mặc định là 22."
+   },
+   "cmd_ssh_title": {
+      "message": "Mở phiên SSH mới."
+   },
+   "command_complete": {
+      "message": "Lệnh $1 đã hoàn tất với mã thoát $2. Hãy đóng cửa sổ này lúc bạn rảnh.",
+      "placeholders": {
+         "1": {
+            "content": "$1"
+         },
+         "2": {
+            "content": "$2"
+         }
+      }
+   },
+   "connect_button_label": {
+      "message": "Kết nối"
+   },
+   "connect_message": {
+      "message": "Vui lòng nhập đích để kết nối."
+   },
+   "connecting": {
+      "message": "Đang kết nối với $1, cổng $2...",
+      "placeholders": {
+         "1": {
+            "content": "$1"
+         },
+         "2": {
+            "content": "$2"
+         }
+      }
+   },
+   "destination_pattern": {
+      "message": "tennguoidung@tenmaychu[:cổng]"
+   },
+   "known_hosts_empty": {
+      "message": "Không có máy chủ đã biết nào để bỏ qua."
+   },
+   "known_hosts_prompt": {
+      "message": "Vui lòng chọn máy chủ cần xóa [1-$1]:",
+      "placeholders": {
+         "1": {
+            "content": "$1"
+         }
+      }
+   },
+   "known_hosts_title": {
+      "message": "Máy chủ đã xác định:"
+   },
+   "missing_param": {
+      "message": "Thiếu tham số: $1",
+      "placeholders": {
+         "1": {
+            "content": "$1"
+         }
+      }
+   },
+   "ok_button_label": {
+      "message": "OK"
+   },
+   "plugin_loading": {
+      "message": "Loading NaCl plugin..."
+   },
+   "plugin_loading_complete": {
+      "message": " done."
+   },
+   "unexpected_error": {
+      "message": "Đã xảy ra lỗi không xác định, vui lòng kiểm tra bảng điều khiển JavaScript để biết thêm chi tiết."
+   },
+   "welcome": {
+      "message": "Chào mừng bạn!  Hãy mở kết nối ssh mới bằng lệnh 'mở'."
+   },
+   "welcome_tip": {
+      "message": "Mẹo nâng cao: Bạn có thể lưu phiên này làm dấu trang trình duyệt."
+   }
+}

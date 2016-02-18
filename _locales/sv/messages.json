@@ -1,0 +1,99 @@
+{
+   "bad_destination": {
+      "message": "Det går inte att analysera destinationen: $1",
+      "placeholders": {
+         "1": {
+            "content": "$1"
+         }
+      }
+   },
+   "before_unload": {
+      "message": "Closing this tab will disconnect this session."
+   },
+   "cancel_button_label": {
+      "message": "Avbryt"
+   },
+   "cmd_ssh_forget_host_help": {
+      "message": "Kommandot visar värdar som vi känner till i en meny och frågar vilken värd som ska glömmas bort."
+   },
+   "cmd_ssh_forget_host_title": {
+      "message": "Glöm en känd ssh-värd."
+   },
+   "cmd_ssh_help": {
+      "message": "Parametrarna |username| och |hostname| är obligatoriska, |port| är valfri. Om du inte anger en port blir den automatiskt 22."
+   },
+   "cmd_ssh_title": {
+      "message": "Öppnar en ny SSH-session."
+   },
+   "command_complete": {
+      "message": "Kommandot $1 har slutförts med slutkoden $2. Du kan stänga det här fönstret.",
+      "placeholders": {
+         "1": {
+            "content": "$1"
+         },
+         "2": {
+            "content": "$2"
+         }
+      }
+   },
+   "connect_button_label": {
+      "message": "Anslut"
+   },
+   "connect_message": {
+      "message": "Ange en destination som du vill ansluta till."
+   },
+   "connecting": {
+      "message": "Ansluter till $1, port $2 ...",
+      "placeholders": {
+         "1": {
+            "content": "$1"
+         },
+         "2": {
+            "content": "$2"
+         }
+      }
+   },
+   "destination_pattern": {
+      "message": "användarnamn@värdnamn[:port]"
+   },
+   "known_hosts_empty": {
+      "message": "Det finns inga kända värdar. Ingen information att glömma."
+   },
+   "known_hosts_prompt": {
+      "message": "Välj en värd som ska glömmas [1–$1]:",
+      "placeholders": {
+         "1": {
+            "content": "$1"
+         }
+      }
+   },
+   "known_hosts_title": {
+      "message": "Kända värdar:"
+   },
+   "missing_param": {
+      "message": "Parametern $1 saknas",
+      "placeholders": {
+         "1": {
+            "content": "$1"
+         }
+      }
+   },
+   "ok_button_label": {
+      "message": "OK"
+   },
+   "plugin_loading": {
+      "message": "Loading NaCl plugin..."
+   },
+   "plugin_loading_complete": {
+      "message": " done."
+   },
+   "unexpected_error": {
+      "message": "Ett oväntat fel uppstod. Du hittar mer information i JavaScript-konsolen."
+   },
+   "welcome": {
+      "message": "Välkommen! Öppna en ny ssh-anslutning med kommandot \"öppna\"."
+   },
+   "welcome_tip": {
+      "message": "Tips! Du kan spara sessionen som ett bokmärke i webbläsaren."
+   }
+}

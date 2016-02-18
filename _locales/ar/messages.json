@@ -1,0 +1,99 @@
+{
+   "bad_destination": {
+      "message": "تعذر تحليل الوجهة: $1",
+      "placeholders": {
+         "1": {
+            "content": "$1"
+         }
+      }
+   },
+   "before_unload": {
+      "message": "Closing this tab will disconnect this session."
+   },
+   "cancel_button_label": {
+      "message": "إلغاء"
+   },
+   "cmd_ssh_forget_host_help": {
+      "message": "يعرض هذا الأمر قائمة بالأجهزة المضيفة المعروفة ومطالبات للمضيف المراد حذفه."
+   },
+   "cmd_ssh_forget_host_title": {
+      "message": "حذف مضيف ssh معروف."
+   },
+   "cmd_ssh_help": {
+      "message": "المعلمتان |username| و|hostname| مطلوبتان، وتكون المعلمة |port| اختيارية. إذا لم يتم تحديد المنفذ، فإنه يتم تعيينه على 22 افتراضيًا."
+   },
+   "cmd_ssh_title": {
+      "message": "لفتح جلسة SSH جديدة."
+   },
+   "command_complete": {
+      "message": "يكتمل الأمر $1 برمز الخروج $2.  الرجاء إغلاق هذه النافذة في وقت فراغك.",
+      "placeholders": {
+         "1": {
+            "content": "$1"
+         },
+         "2": {
+            "content": "$2"
+         }
+      }
+   },
+   "connect_button_label": {
+      "message": "اتصال"
+   },
+   "connect_message": {
+      "message": "الرجاء إدخال وجهة للاتصال بها."
+   },
+   "connecting": {
+      "message": "جارٍ الاتصال بـ $1، في المنفذ $2...",
+      "placeholders": {
+         "1": {
+            "content": "$1"
+         },
+         "2": {
+            "content": "$2"
+         }
+      }
+   },
+   "destination_pattern": {
+      "message": "username@hostname[:port]"
+   },
+   "known_hosts_empty": {
+      "message": "ليس هناك أجهزة مضيفة معروفة، ليس هناك مضيف لحذفه."
+   },
+   "known_hosts_prompt": {
+      "message": "الرجاء تحديد مضيف لحذفه [1-$1]:",
+      "placeholders": {
+         "1": {
+            "content": "$1"
+         }
+      }
+   },
+   "known_hosts_title": {
+      "message": "الأجهزة المضيفة المعروفة:"
+   },
+   "missing_param": {
+      "message": "معلمة مفقودة: $1",
+      "placeholders": {
+         "1": {
+            "content": "$1"
+         }
+      }
+   },
+   "ok_button_label": {
+      "message": "موافق"
+   },
+   "plugin_loading": {
+      "message": "Loading NaCl plugin..."
+   },
+   "plugin_loading_complete": {
+      "message": " done."
+   },
+   "unexpected_error": {
+      "message": "حدث خطأ غير متوقع، الرجاء التحقق من وحدة تحكم جافا سكريبت للحصول على المزيد من التفاصيل."
+   },
+   "welcome": {
+      "message": "مرحبًا! يمكنك فتح اتصال ssh جديد باستخدام الأمر \"فتح\"."
+   },
+   "welcome_tip": {
+      "message": "نصيحة للمحترفين: يمكنك حفظ هذه الجلسة كإشارة مرجعية في المتصفح."
+   }
+}

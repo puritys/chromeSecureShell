@@ -1,0 +1,99 @@
+{
+   "bad_destination": {
+      "message": "Неможливо проаналізувати місце призначення: $1",
+      "placeholders": {
+         "1": {
+            "content": "$1"
+         }
+      }
+   },
+   "before_unload": {
+      "message": "Closing this tab will disconnect this session."
+   },
+   "cancel_button_label": {
+      "message": "Скасувати"
+   },
+   "cmd_ssh_forget_host_help": {
+      "message": "Ця команда відображає меню відомих хостів і запитує, які хости потрібно видалити."
+   },
+   "cmd_ssh_forget_host_title": {
+      "message": "Видалити відомий хост SSH."
+   },
+   "cmd_ssh_help": {
+      "message": "Потрібні параметри |username| та |hostname|, параметр |port| – необов’язковий. Якщо порт не вказано, використовується порт за умовчанням – 22."
+   },
+   "cmd_ssh_title": {
+      "message": "Відкриває новий сеанс SSH."
+   },
+   "command_complete": {
+      "message": "Команду $1 виконано з кодом закінчення $2. Закрийте це вікно, коли матимете час.",
+      "placeholders": {
+         "1": {
+            "content": "$1"
+         },
+         "2": {
+            "content": "$2"
+         }
+      }
+   },
+   "connect_button_label": {
+      "message": "З’єднатися"
+   },
+   "connect_message": {
+      "message": "Введіть місце призначення для з’єднання."
+   },
+   "connecting": {
+      "message": "З’єднання з $1, порт $2...",
+      "placeholders": {
+         "1": {
+            "content": "$1"
+         },
+         "2": {
+            "content": "$2"
+         }
+      }
+   },
+   "destination_pattern": {
+      "message": "username@hostname[:port]"
+   },
+   "known_hosts_empty": {
+      "message": "Немає відомих хостів, нічого видаляти."
+   },
+   "known_hosts_prompt": {
+      "message": "Виберіть хост, який потрібно видалити [1–$1]:",
+      "placeholders": {
+         "1": {
+            "content": "$1"
+         }
+      }
+   },
+   "known_hosts_title": {
+      "message": "Відомі хости:"
+   },
+   "missing_param": {
+      "message": "Відсутній параметр: $1",
+      "placeholders": {
+         "1": {
+            "content": "$1"
+         }
+      }
+   },
+   "ok_button_label": {
+      "message": "OK"
+   },
+   "plugin_loading": {
+      "message": "Loading NaCl plugin..."
+   },
+   "plugin_loading_complete": {
+      "message": " done."
+   },
+   "unexpected_error": {
+      "message": "Сталася неочікувана помилка. Перевірте консоль JavaScript, щоб дізнатися більше."
+   },
+   "welcome": {
+      "message": "ВІтаємо! Відкрийте нове з’єднання SSH за допомогою команди \"відкрити\"."
+   },
+   "welcome_tip": {
+      "message": "Професійна порада: цей сеанс можна зберегти як закладку веб-переглядача."
+   }
+}

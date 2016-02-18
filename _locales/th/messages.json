@@ -1,0 +1,99 @@
+{
+   "bad_destination": {
+      "message": "ไม่สามารถแยกวิเคราะห์ปลายทาง: $1",
+      "placeholders": {
+         "1": {
+            "content": "$1"
+         }
+      }
+   },
+   "before_unload": {
+      "message": "Closing this tab will disconnect this session."
+   },
+   "cancel_button_label": {
+      "message": "ยกเลิก"
+   },
+   "cmd_ssh_forget_host_help": {
+      "message": "คำสั่งนี้จะแสดงเมนูของโฮสต์ที่รู้จักและแจ้งให้ระบุโฮสต์ที่จะไม่จดจำ"
+   },
+   "cmd_ssh_forget_host_title": {
+      "message": "ไม่จำโฮสต์ SSH ที่รู้จัก"
+   },
+   "cmd_ssh_help": {
+      "message": "ต้องมีพารามิเตอร์ |username| และ |hostname| จะระบุ |port| หรือไม่ก็ได้ ถ้าไม่ระบุพอร์ต ค่าเริ่มต้นจะเป็น 22"
+   },
+   "cmd_ssh_title": {
+      "message": "เปิดเซสชัน SSH ใหม่"
+   },
+   "command_complete": {
+      "message": "คำสั่ง $1 เสร็จสมบูรณ์โดยมีรหัสสำหรับออก $2 คุณสามารถปิดหน้าต่างนี้ได้ตามต้องการ",
+      "placeholders": {
+         "1": {
+            "content": "$1"
+         },
+         "2": {
+            "content": "$2"
+         }
+      }
+   },
+   "connect_button_label": {
+      "message": "เชื่อมต่อ"
+   },
+   "connect_message": {
+      "message": "โปรดป้อนปลายทางที่ต้องการเชื่อมต่อ"
+   },
+   "connecting": {
+      "message": "กำลังเชื่อมต่อกับ $1, พอร์ต $2...",
+      "placeholders": {
+         "1": {
+            "content": "$1"
+         },
+         "2": {
+            "content": "$2"
+         }
+      }
+   },
+   "destination_pattern": {
+      "message": "ชื่อผู้ใช้@ชื่อโฮสต์[:พอร์ต]"
+   },
+   "known_hosts_empty": {
+      "message": "ไม่มีโฮสต์ที่รู้จัก ไม่มีโฮสต์ใดที่จะไม่จำ"
+   },
+   "known_hosts_prompt": {
+      "message": "โปรดเลือกโฮสต์ที่จะไม่จำ [1-$1]:",
+      "placeholders": {
+         "1": {
+            "content": "$1"
+         }
+      }
+   },
+   "known_hosts_title": {
+      "message": "โฮสต์ที่รู้จัก:"
+   },
+   "missing_param": {
+      "message": "พารามิเตอร์ที่ขาด: $1",
+      "placeholders": {
+         "1": {
+            "content": "$1"
+         }
+      }
+   },
+   "ok_button_label": {
+      "message": "ตกลง"
+   },
+   "plugin_loading": {
+      "message": "Loading NaCl plugin..."
+   },
+   "plugin_loading_complete": {
+      "message": " done."
+   },
+   "unexpected_error": {
+      "message": "เกิดข้อผิดพลาดที่ไม่คาดคิด โปรดตรวจสอบคอนโซล JavaScript สำหรับรายละเอียดเพิ่มเติม"
+   },
+   "welcome": {
+      "message": "ยินดีต้อนรับ! เปิดการเชื่อมต่อ SSH ใหม่ด้วยคำสั่ง \"เปิด\""
+   },
+   "welcome_tip": {
+      "message": "เคล็ดลับสำหรับมืออาชีพ: คุณสามารถบันทึกเซสชันนี้เป็นบุ๊กมาร์กของเบราว์เซอร์ได้"
+   }
+}

@@ -1,0 +1,99 @@
+{
+   "bad_destination": {
+      "message": "Nije moguće analizirati odredište: $1",
+      "placeholders": {
+         "1": {
+            "content": "$1"
+         }
+      }
+   },
+   "before_unload": {
+      "message": "Closing this tab will disconnect this session."
+   },
+   "cancel_button_label": {
+      "message": "Odustani"
+   },
+   "cmd_ssh_forget_host_help": {
+      "message": "Ova naredba prikazuje izbornik poznatih hostova i upita koje host treba zaboraviti."
+   },
+   "cmd_ssh_forget_host_title": {
+      "message": "Zaboravi poznati host ssh."
+   },
+   "cmd_ssh_help": {
+      "message": "Parametri |username| i |hostname| obavezni su, parametar |port| nije. Ako ne navedete priključak, bit će navedena zadana vrijednost 22."
+   },
+   "cmd_ssh_title": {
+      "message": "Otvaranje nove sesije SSH."
+   },
+   "command_complete": {
+      "message": "Naredba $1 završena je izlaznim kodom $2. Zatvorite ovaj prozor kad vam odgovara.",
+      "placeholders": {
+         "1": {
+            "content": "$1"
+         },
+         "2": {
+            "content": "$2"
+         }
+      }
+   },
+   "connect_button_label": {
+      "message": "Poveži se"
+   },
+   "connect_message": {
+      "message": "Unesite odredište za povezivanje."
+   },
+   "connecting": {
+      "message": "Povezivanje na $1, priključak $2...",
+      "placeholders": {
+         "1": {
+            "content": "$1"
+         },
+         "2": {
+            "content": "$2"
+         }
+      }
+   },
+   "destination_pattern": {
+      "message": "username@hostname[:port]"
+   },
+   "known_hosts_empty": {
+      "message": "Nema poznatih hostova, nema ničega za zaboraviti."
+   },
+   "known_hosts_prompt": {
+      "message": "Odaberite host za zaboravljanje [1-$1]:",
+      "placeholders": {
+         "1": {
+            "content": "$1"
+         }
+      }
+   },
+   "known_hosts_title": {
+      "message": "Poznati hostovi:"
+   },
+   "missing_param": {
+      "message": "Nedostaje parametar: $1",
+      "placeholders": {
+         "1": {
+            "content": "$1"
+         }
+      }
+   },
+   "ok_button_label": {
+      "message": "U redu"
+   },
+   "plugin_loading": {
+      "message": "Loading NaCl plugin..."
+   },
+   "plugin_loading_complete": {
+      "message": " done."
+   },
+   "unexpected_error": {
+      "message": "Pojavila se neočekivana pogreška, provjerite konzolu JavaScript kako biste saznali više."
+   },
+   "welcome": {
+      "message": "Dobro došli! Otvorite novu vezu ssh naredbom \"otvori\"."
+   },
+   "welcome_tip": {
+      "message": "Stručni savjet: možete spremiti ovu sesiju kao knjižnu oznaku preglednika."
+   }
+}

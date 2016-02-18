@@ -1,0 +1,99 @@
+{
+   "bad_destination": {
+      "message": "Cilja ni mogoče razčleniti: $1",
+      "placeholders": {
+         "1": {
+            "content": "$1"
+         }
+      }
+   },
+   "before_unload": {
+      "message": "Closing this tab will disconnect this session."
+   },
+   "cancel_button_label": {
+      "message": "Prekliči"
+   },
+   "cmd_ssh_forget_host_help": {
+      "message": "Ta ukaz prikaže meni znanih gostiteljev in vas vpraša, katerega naj pozabi."
+   },
+   "cmd_ssh_forget_host_title": {
+      "message": "Pozabi znanega gostitelja ssh."
+   },
+   "cmd_ssh_help": {
+      "message": "Parametra |uporabniško ime| in |ime gostitelja| sta obvezna, |vrata| pa je izbiren. Če ne navedete številke vrat, se privzeto uporabi 22."
+   },
+   "cmd_ssh_title": {
+      "message": "Odpre novo sejo SSH."
+   },
+   "command_complete": {
+      "message": "Ukaz $1 je končal z izhodno kodo $2. To okno lahko kadar koli zaprete.",
+      "placeholders": {
+         "1": {
+            "content": "$1"
+         },
+         "2": {
+            "content": "$2"
+         }
+      }
+   },
+   "connect_button_label": {
+      "message": "Vzpostavi povezavo"
+   },
+   "connect_message": {
+      "message": "Vnesite cilj, s katerim želite vzpostaviti povezavo."
+   },
+   "connecting": {
+      "message": "Povezovanje z $1, vrata $2 ...",
+      "placeholders": {
+         "1": {
+            "content": "$1"
+         },
+         "2": {
+            "content": "$2"
+         }
+      }
+   },
+   "destination_pattern": {
+      "message": "uporabniškoime@imegostitelja[:vrata]"
+   },
+   "known_hosts_empty": {
+      "message": "Ni znanih gostiteljev, zato ni ničesar za pozabiti."
+   },
+   "known_hosts_prompt": {
+      "message": "Izberite gostitelja, ki ga želite pozabiti [1–$1]:",
+      "placeholders": {
+         "1": {
+            "content": "$1"
+         }
+      }
+   },
+   "known_hosts_title": {
+      "message": "Znani gostitelji:"
+   },
+   "missing_param": {
+      "message": "Manjka parameter: $1",
+      "placeholders": {
+         "1": {
+            "content": "$1"
+         }
+      }
+   },
+   "ok_button_label": {
+      "message": "V redu"
+   },
+   "plugin_loading": {
+      "message": "Loading NaCl plugin..."
+   },
+   "plugin_loading_complete": {
+      "message": " done."
+   },
+   "unexpected_error": {
+      "message": "Nepričakovana napaka. Podrobnosti najdete v konzoli za JavaScript."
+   },
+   "welcome": {
+      "message": "Dobrodošli! Odprite novo povezavo ssh z ukazom »open«."
+   },
+   "welcome_tip": {
+      "message": "Nasvet strokovnjaka: to sejo lahko shranite kot zaznamek v brskalniku."
+   }
+}

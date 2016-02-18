@@ -1,0 +1,99 @@
+{
+   "bad_destination": {
+      "message": "Δεν είναι δυνατή η ανάλυση του προορισμού: $1",
+      "placeholders": {
+         "1": {
+            "content": "$1"
+         }
+      }
+   },
+   "before_unload": {
+      "message": "Closing this tab will disconnect this session."
+   },
+   "cancel_button_label": {
+      "message": "Ακύρωση"
+   },
+   "cmd_ssh_forget_host_help": {
+      "message": "Αυτή η εντολή εμφανίζει ένα μενού με τους γνωστούς κεντρικούς υπολογιστές και προτείνει τον κεντρικό υπολογιστή που θα διαγραφεί από τη μνήμη."
+   },
+   "cmd_ssh_forget_host_title": {
+      "message": "Διαγραφή από τη μνήμη ενός γνωστού κεντρικού υπολογιστή ssh."
+   },
+   "cmd_ssh_help": {
+      "message": "Είναι υποχρεωτικές οι παράμετροι |όνομα χρήστη| και |όνομα κεντρικού υπολογιστή|, η παράμετρος |θύρα| είναι προαιρετική.  Σε περίπτωση που δεν προσδιοριστεί η θύρα, προεπιλεγμένη είναι η 22."
+   },
+   "cmd_ssh_title": {
+      "message": "Ανοίγει μια νέα συνεδρία SSH."
+   },
+   "command_complete": {
+      "message": "Η εντολή $1 ολοκληρώθηκε με κώδικα εξόδου $2. Κλείστε αυτό το παράθυρο όποτε επιθυμείτε.",
+      "placeholders": {
+         "1": {
+            "content": "$1"
+         },
+         "2": {
+            "content": "$2"
+         }
+      }
+   },
+   "connect_button_label": {
+      "message": "Σύνδεση"
+   },
+   "connect_message": {
+      "message": "Εισαγάγετε έναν προορισμό για να συνδεθείτε."
+   },
+   "connecting": {
+      "message": "Σύνδεση με τον κεντρικό υπολογιστή $1, θύρα $2...",
+      "placeholders": {
+         "1": {
+            "content": "$1"
+         },
+         "2": {
+            "content": "$2"
+         }
+      }
+   },
+   "destination_pattern": {
+      "message": "username@hostname[:port]"
+   },
+   "known_hosts_empty": {
+      "message": "Δεν υπάρχουν γνωστοί κεντρικοί υπολογιστές, δεν μπορεί να διαγραφεί κάτι από τη μνήμη."
+   },
+   "known_hosts_prompt": {
+      "message": "Επιλέξτε έναν κεντρικό υπολογιστή για διαγραφή από τη μνήμη[1-$1]:",
+      "placeholders": {
+         "1": {
+            "content": "$1"
+         }
+      }
+   },
+   "known_hosts_title": {
+      "message": "Γνωστοί κεντρικοί υπολογιστές:"
+   },
+   "missing_param": {
+      "message": "Λείπει η παράμετρος: $1",
+      "placeholders": {
+         "1": {
+            "content": "$1"
+         }
+      }
+   },
+   "ok_button_label": {
+      "message": "OK"
+   },
+   "plugin_loading": {
+      "message": "Loading NaCl plugin..."
+   },
+   "plugin_loading_complete": {
+      "message": " done."
+   },
+   "unexpected_error": {
+      "message": "Παρουσιάστηκε μη αναμενόμενο σφάλμα, ελέγξτε την κονσόλα JavaScript για περισσότερες λεπτομέρειες."
+   },
+   "welcome": {
+      "message": "Καλώς ορίσατε! Ανοίξτε μια νέα σύνδεση ssh με την εντολή 'άνοιγμα'."
+   },
+   "welcome_tip": {
+      "message": "Συμβουλή από τους ειδικούς: μπορείτε να αποθηκεύσετε αυτή τη συνεδρία ως σελιδοδείκτη του προγράμματος περιήγησης."
+   }
+}
