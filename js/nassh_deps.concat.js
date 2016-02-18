@@ -5805,11 +5805,11 @@ console.log(e);
 
   var control = e.ctrlKey;
 
-   if (this.metaAsCtrl &&
-       e.metaKey == true
-   ) {
-     control = e.metaKey; 
-   }
+  if (this.metaAsCtrl &&
+      e.metaKey == true
+  ) {
+    control = e.metaKey; 
+  }
 
   var alt = this.altIsMeta ? false : e.altKey;
   var meta = this.altIsMeta ? (e.altKey || e.metaKey) : e.metaKey;
