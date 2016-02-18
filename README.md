@@ -6,4 +6,4 @@ So I improved it by adding more options.
 # Options
 
 * meta-as-ctrl : Map the key command+v to be ctrl+v on Mac.
-* ctrl-v-paste-hacky : Force the key ctrl+v to paste content from clipboard.
+* ctrl-v-paste-hacky : Force the key ctrl+v to paste content from the clipboard.
