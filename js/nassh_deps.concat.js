@@ -5686,9 +5686,16 @@ hterm.Keyboard.prototype.onTextInput_ = function(e) {
  */
 hterm.Keyboard.prototype.onKeyPress_ = function(e) {
   var code;
-
   var key = String.fromCharCode(e.which);
   var lowerKey = key.toLowerCase();
+
+  if (
+    (e.ctrlKey && this.ctrlPlusArrowSwitchTab) ||
+    (e.metaKey && this.metaPlusArrowSwitchTab)
+  ) {
+      if (e.keyCode == 63235 || e.keyCode == 63234) return ;
+  }
+
   if ((e.ctrlKey || e.metaKey) && (lowerKey == 'c' || lowerKey == 'v')) {
     // On FF the key press (not key down) event gets fired for copy/paste.
     // Let it fall through for the default browser behaviour.
@@ -5749,7 +5756,8 @@ hterm.Keyboard.prototype.onKeyUp_ = function(e) {
  * Handle onKeyDown events.
  */
 hterm.Keyboard.prototype.onKeyDown_ = function(e) {
-console.log(e);
+
+  //console.log(e);
 
   if (e.keyCode == 18)
     this.altKeyPressed = this.altKeyPressed | (1 << (e.location - 1));
@@ -5763,6 +5771,48 @@ console.log(e);
       } catch (e) {
           console.log(e);
       }
+  }
+
+  if (
+    (e.ctrlKey && this.ctrlPlusArrowSwitchTab) ||
+    (e.metaKey && this.metaPlusArrowSwitchTab)
+  ) {
+    if (e.keyCode == 37 || e.keyCode == 39) { 
+        // Arrow: Left Right 
+        chrome.tabs.getCurrent(function (tab) {
+            var windowId, activeTabId;
+            activeTabId = tab.id;
+            windowId = tab.windowId;
+            chrome.tabs.getAllInWindow(windowId, function (tabs) {
+                var prev, activeNext = false, tab;
+                for (var i = 0, n= tabs.length; i < n; i++) {
+                    tab = tabs[i];
+                    if (activeNext == true) {
+                        chrome.tabs.update(tab.id, {active:true});
+                        return "";
+                    }
+                    if (tab.id == activeTabId) {
+                        if (e.keyCode == 37) {
+                            if (!prev) {
+                                chrome.tabs.update(tabs[n-1].id, {active:true});
+                            } else {
+                                chrome.tabs.update(prev.id, {active:true});
+                            }
+                            return "";
+                        } else if (e.keyCode == 39) {
+                            activeNext = true;
+                        }
+                    }
+                    prev = tab;
+                }
+                if (activeNext == true) {
+                    chrome.tabs.update(tabs[0].id, {active:true});
+                    return "";
+                }
+            });
+        });
+        return;
+    }
   }
 
   if (e.keyCode == 27) 
@@ -6978,6 +7028,18 @@ hterm.PreferenceManager.defaultPreferences = {
    * Set the meta key to be ctrl.
    */
   'meta-as-ctrl': false,
+
+  /**
+   * Use the Meta+Left to switch tab.
+   */
+  'meta-plus-arrow-switch-tab': false,
+
+  /**
+   * Use the Ctrl+Left to switch tab.
+   */
+  'ctrl-plus-arrow-switch-tab': false,
+
+
 
  /**
    * Mouse paste button, or null to autodetect.
@@ -9925,6 +9987,12 @@ hterm.Terminal.prototype.setProfile = function(profileId, opt_callback) {
     },
     'meta-as-ctrl': function(v) {
       terminal.keyboard.metaAsCtrl = v;
+    },
+    'meta-plus-arrow-switch-tab': function(v) {
+      terminal.keyboard.metaPlusArrowSwitchTab = v;
+    },
+    'ctrl-plus-arrow-switch-tab': function(v) {
+      terminal.keyboard.ctrlPlusArrowSwitchTab = v;
     },
 
     'mouse-paste-button': function(v) {
