@@ -21,7 +21,7 @@
    "name": "Secure Shell Improved",
    "offline_enabled": true,
    "options_page": "html/nassh_preferences_editor.html",
-   "permissions": [ "clipboardRead", "clipboardWrite", "notifications", "storage", "terminalPrivate", "unlimitedStorage" ],
-   "version": "0.0.1",
+   "permissions": [ "clipboardRead", "clipboardWrite", "notifications", "storage", "terminalPrivate", "unlimitedStorage", "tabs" ],
+   "version": "0.8.34",
    "web_accessible_resources": [ "html/crosh.html", "html/nassh.html", "html/nassh_google_relay.html", "html/nassh_connect_dialog.html" ]
 }
