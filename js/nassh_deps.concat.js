@@ -5757,17 +5757,20 @@ hterm.Keyboard.prototype.onKeyUp_ = function(e) {
  */
 hterm.Keyboard.prototype.onKeyDown_ = function(e) {
 
-  //console.log(e);
+  console.log(e);
 
   if (e.keyCode == 18)
     this.altKeyPressed = this.altKeyPressed | (1 << (e.location - 1));
 
   if (this.ctrlVPasteHacky &&
-      e.ctrlKey == true && e.keyCode == 86
+      e.ctrlKey == true && e.which == 86
   ) {
       try {
           term_.document_.execCommand('paste');
-          return ;
+          e.preventDefault();
+          e.stopPropagation();
+          this.terminal.onVTKeystroke(getAction('control'));
+          return;
       } catch (e) {
           console.log(e);
       }
