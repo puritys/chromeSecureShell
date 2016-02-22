@@ -5757,7 +5757,7 @@ hterm.Keyboard.prototype.onKeyUp_ = function(e) {
  */
 hterm.Keyboard.prototype.onKeyDown_ = function(e) {
 
-  console.log(e);
+  //console.log(e);
 
   if (e.keyCode == 18)
     this.altKeyPressed = this.altKeyPressed | (1 << (e.location - 1));
