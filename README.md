@@ -10,3 +10,12 @@ So I improved it by adding more options.
 * meta-plus-arrow-switch-tab :
 * ctrl-plus-arrow-switch-tab :
 
+# Installation
+
+* git clone git@github.com:puritys/chromeSecureShell.git
+* cd chromeSecureShell
+* Open the browser chrome and keyin the value "chrome://extensions/" into URL bar.
+* Click the checkbox of developer mode to enable developer mode.
+* Click the button "Load unpacked extension" and choose the directory "chromeSecureShell"
+ 
+
