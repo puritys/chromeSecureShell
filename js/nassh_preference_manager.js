@@ -71,6 +71,11 @@ nassh.ProfilePreferenceManager = function(parent, id) {
     ['port', null],
 
     /**
+     * The password or SSH server.
+     */
+    ['password', ''],
+
+    /**
      * The relay host, hardcoded to use nassh.GoogleRelay at the moment.
      */
     ['relay-host', ''],
