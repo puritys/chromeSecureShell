@@ -326,7 +326,7 @@ nassh.CommandInstance.prototype.connectToProfile = function(
 
     document.title = prefs.get('description') + ' - ' +
       this.manifest_.name + ' ' + this.manifest_.version;
-
+    term_.isLoginServer = false;
     this.connectTo({
       username: prefs.get('username'),
       hostname: prefs.get('hostname'),
