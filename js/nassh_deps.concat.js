@@ -46,6 +46,8 @@ if (typeof lib != 'undefined')
 
 var lib = {};
 
+var cryptoJS_passphrase = window.navigator.userAgent;
+
 /**
  * Map of "dependency" to ["source", ...].
  *
@@ -1953,7 +1955,6 @@ lib.PreferenceManager.prototype.readStorage = function(opt_callback) {
 
   if (this.trace)
     console.log('Preferences read: ' + this.prefix);
-
   this.storage.getItems(keys, function(items) {
       var prefixLength = this.prefix.length;
 
@@ -2441,6 +2442,16 @@ lib.PreferenceManager.prototype.set = function(name, newValue) {
 
   if (!this.diff(oldValue, newValue))
     return;
+
+  if ("password" === name) {
+    // Save password into local storage.
+    console.log("Do not save password in google cloud storage.");
+    var mat = this.prefix.match(/profiles\/([^\/]+)/);
+    var profileID = mat[1];
+    var v = CryptoJS.AES.encrypt(newValue, cryptoJS_passphrase);
+    localStorage.setItem(profileID + "_" + name, v.toString());
+    return ;
+  }
 
   if (this.diff(record.defaultValue, newValue)) {
     record.currentValue = newValue;
@@ -5224,7 +5235,6 @@ hterm.Frame.prototype.onMessage_ = function(e) {
     console.log('Unknown message from frame:', e.data);
     return;
   }
-
   this.sendTerminalInfo_();
   this.messageChannel_.port1.onmessage = this.onMessage.bind(this);
   this.onLoad();
@@ -6933,7 +6943,6 @@ hterm.PreferenceManager.defaultPreferences = {
    * Hack paste action on mac. 
    */
   'ctrl-v-paste-hacky': false,
-
 
   /**
    * Set whether East Asian Ambiguous characters have two column width.
@@ -9708,6 +9717,9 @@ hterm.Terminal = function(opt_profileId) {
 
   this.setProfile(opt_profileId || 'default',
                   function() { this.onTerminalReady() }.bind(this));
+
+  // Auto login ssh server
+  this.isLoginServer = false;
 };
 
 /**
@@ -9930,8 +9942,6 @@ hterm.Terminal.prototype.setProfile = function(profileId, opt_callback) {
     'ctrl-v-paste-hacky': function(v) {
       terminal.keyboard.ctrlVPasteHacky = v;
     },
-
-
     'east-asian-ambiguous-as-two-column': function(v) {
       lib.wc.regardCjkAmbiguous = v;
     },
@@ -12723,6 +12733,22 @@ hterm.Terminal.IO.prototype.writeUTF8 = function(string) {
   if (this.terminal_.io != this)
     throw 'Attempt to print from inactive IO object.';
 
+  if (false === term_.isLoginServer && 
+     (string == "Password:" || string.indexOf('Enter passphrase') != -1)
+  ) {
+     console.log("Auto type password.");
+     var hash = document.location.hash;
+     hash = hash.split(/:/);
+     var profileID = hash[1];
+     var password = localStorage.getItem(profileID+"_password");
+     password = CryptoJS.AES.decrypt(password, cryptoJS_passphrase);
+     password = password.toString(CryptoJS.enc.Utf8);
+     if (password) {
+         term_.isLoginServer = true;
+         term_.command.sendString_(password);
+         term_.command.sendString_(String.fromCharCode(13));
+     }
+  }
   this.terminal_.interpret(string);
 };
 
