@@ -142,7 +142,8 @@ a:hover {
 
 #field-username,
 #field-relay-port,
-#field-port {
+#field-port,
+#field-password {
   max-width: 10em;
 }
 
