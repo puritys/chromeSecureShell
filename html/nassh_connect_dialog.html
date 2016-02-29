@@ -8,6 +8,7 @@
     <script src='../js/nassh_column_list.js'></script>
     <script src='../js/nassh_connect_dialog.js'></script>
     <script src='../js/nassh_preference_manager.js'></script>
+    <script src='../js/aes.js'></script>
 
     <link rel='stylesheet' href='../css/nassh_box.css'></link>
     <link rel='stylesheet' href='../css/nassh_connect_dialog.css'></link>
@@ -30,6 +31,9 @@
           <input x-box x-flex='1' id='field-hostname' type='text'
                  i18n='{"aria-label": "$id"}'
                  required>
+          <input x-box id='field-password' type='password'
+                 i18n='{"aria-label": "$id"}'
+                 >
           <input x-box id='field-port' type='number' min='1' max='65535'
                  i18n='{"aria-label": "$id"}'
                  min='1' max='65535'>

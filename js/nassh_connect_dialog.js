@@ -226,7 +226,7 @@ nassh.ConnectDialog.prototype.installHandlers_ = function() {
     });
 
   // These fields interact with each-other's placeholder text.
-  ['description', 'username', 'hostname', 'port'
+  ['description', 'username', 'hostname', 'port', 'password'
   ].forEach(function(name) {
       var field = this.$f(name);
 
@@ -251,7 +251,7 @@ nassh.ConnectDialog.prototype.installHandlers_ = function() {
                    this.maybeDirty_.bind(this, name));
     }.bind(this));
 
-  ['description', 'username', 'hostname', 'port', 'relay-options',
+  ['description', 'username', 'hostname', 'port', 'password', 'relay-options',
    'identity', 'argstr', 'terminal-profile'
   ].forEach(function(name) {
       addListeners(this.$f(name), ['focus', 'blur'],
@@ -337,7 +337,7 @@ nassh.ConnectDialog.prototype.save = function() {
 
   var prefs = this.currentProfileRecord_.prefs;
 
-  ['description', 'username', 'hostname', 'port', 'relay-options',
+  ['description', 'username', 'hostname', 'port', 'password', 'relay-options',
    'identity', 'argstr', 'terminal-profile'].forEach(function(name) {
        if (name == 'identity' && this.$f('identity').selectedIndex === 0)
          return;
@@ -420,7 +420,7 @@ nassh.ConnectDialog.prototype.maybeDirty_ = function(fieldName) {
  * to bulk-default.
  */
 nassh.ConnectDialog.prototype.maybeCopyPlaceholders_ = function() {
-  ['description', 'username', 'hostname', 'port'
+  ['description', 'username', 'hostname', 'password', 'port'
   ].forEach(this.maybeCopyPlaceholder_.bind(this));
   this.syncButtons_();
 };
@@ -468,7 +468,7 @@ nassh.ConnectDialog.prototype.updateDetailPlaceholders_ = function() {
   // Copy the remaining match elements into the appropriate placeholder
   // attribute.  Set the default placeholder text from this.str.placeholders
   // for any field that was not matched.
-  ['username', 'hostname', 'port'
+  ['username', 'hostname', 'port', 'password'
   ].forEach(function(name) {
       var value = ary.shift();
       if (!value) {
@@ -505,7 +505,7 @@ nassh.ConnectDialog.prototype.updateDescriptionPlaceholder_ = function() {
  * Sync the form with the current profile record.
  */
 nassh.ConnectDialog.prototype.syncForm_ = function() {
-  ['description', 'username', 'hostname', 'port', 'argstr', 'relay-options',
+  ['description', 'username', 'hostname', 'port', 'password', 'argstr', 'relay-options',
    'identity', 'terminal-profile'
   ].forEach(function(n) {
       var emptyValue = '';

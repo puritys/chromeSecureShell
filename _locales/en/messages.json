@@ -111,6 +111,14 @@
       "description": "Text use as the placeholder for the 'hostname' field.",
       "message": "hostname"
    },
+   "FIELD_PASSWORD_ARIA_LABEL": {
+      "description": "Text use as the aria-label for the 'password' field.",
+      "message": "password"
+   },
+   "FIELD_PASSWORD_PLACEHOLDER": {
+      "description": "Text use as the placeholder for the 'password' field.",
+      "message": "password"
+   },
    "FIELD_IDENTITY_ARIA_LABEL": {
       "description": "Text to use as the aria-label for the identity dropdown.",
       "message": "identity"
