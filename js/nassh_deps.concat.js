@@ -2443,7 +2443,7 @@ lib.PreferenceManager.prototype.set = function(name, newValue) {
   if (!this.diff(oldValue, newValue))
     return;
 
-  if ("password" === name) {
+  if ("password" === name && newValue) {
     // Save password into local storage.
     console.log("Do not save password in google cloud storage.");
     var mat = this.prefix.match(/profiles\/([^\/]+)/);
@@ -12741,9 +12741,9 @@ hterm.Terminal.IO.prototype.writeUTF8 = function(string) {
      hash = hash.split(/:/);
      var profileID = hash[1];
      var password = localStorage.getItem(profileID+"_password");
-     password = CryptoJS.AES.decrypt(password, cryptoJS_passphrase);
-     password = password.toString(CryptoJS.enc.Utf8);
-     if (password) {
+    if (password) {
+         password = CryptoJS.AES.decrypt(password, cryptoJS_passphrase);
+         password = password.toString(CryptoJS.enc.Utf8);
          term_.isLoginServer = true;
          term_.command.sendString_(password);
          term_.command.sendString_(String.fromCharCode(13));
