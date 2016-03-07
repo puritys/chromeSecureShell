@@ -12736,17 +12736,18 @@ hterm.Terminal.IO.prototype.writeUTF8 = function(string) {
     throw 'Attempt to print from inactive IO object.';
 
   if (false === term_.isLoginServer && 
-     (string == "Password:" || string.indexOf('Enter passphrase') != -1)
+     (string == "Password:" || string.indexOf('Enter passphrase') != -1 || string.indexOf("password:") != -1)
   ) {
      console.log("Auto type password.");
      var hash = document.location.hash;
      hash = hash.split(/:/);
      var profileID = hash[1];
      var password = localStorage.getItem(profileID+"_password");
-    if (password) {
+     // Only type password once, so we mark it to be login status.
+     term_.isLoginServer = true;
+     if (password) {
          password = CryptoJS.AES.decrypt(password, cryptoJS_passphrase);
          password = password.toString(CryptoJS.enc.Utf8);
-         term_.isLoginServer = true;
          term_.command.sendString_(password);
          term_.command.sendString_(String.fromCharCode(13));
      }
