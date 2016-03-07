@@ -5776,15 +5776,9 @@ hterm.Keyboard.prototype.onKeyDown_ = function(e) {
       e.ctrlKey == true && e.which == 86
   ) {
       try {
-          term_.document_.execCommand('paste');
-          e.preventDefault();
-          e.stopPropagation();
-
-          // Send control to fix paste repeatition.
-          this.terminal.onVTKeystroke(getAction('control'));
-          return;
+        term_.document_.execCommand('paste');
+        return hterm.Keyboard.KeyActions.PASS;
       } catch (e) {
-          //console.log(e);
       }
   }
 
