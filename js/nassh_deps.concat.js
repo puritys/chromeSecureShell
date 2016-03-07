@@ -6592,7 +6592,6 @@ hterm.Keyboard.KeyMap.prototype.onCtrlV_ = function(e, keyDef) {
       (e.shiftKey && !this.keyboard.ctrlVPaste)) {
     return hterm.Keyboard.KeyActions.PASS;
   }
-
   return '\x16';
 };
 
@@ -8654,6 +8653,9 @@ hterm.ScrollPort.prototype.setCtrlVPaste = function(ctrlVPaste) {
   this.ctrlVPaste = ctrlVPaste;
 };
 
+hterm.ScrollPort.prototype.setCtrlVPasteHacky = function(ctrlVPasteHacky) {
+  this.ctrlVPasteHacky = ctrlVPasteHacky;
+};
 /**
  * Get the usable size of the scrollport screen.
  *
@@ -9517,7 +9519,7 @@ hterm.ScrollPort.prototype.onCopy_ = function(e) {
  * FF a content editable element must be focused before the paste event.
  */
 hterm.ScrollPort.prototype.onBodyKeyDown_ = function(e) {
-  if (!this.ctrlVPaste)
+  if (!this.ctrlVPaste && !this.ctrlVPasteHacky)
     return;
 
   var key = String.fromCharCode(e.which);
@@ -9937,6 +9939,7 @@ hterm.Terminal.prototype.setProfile = function(profileId, opt_callback) {
     },
     'ctrl-v-paste-hacky': function(v) {
       terminal.keyboard.ctrlVPasteHacky = v;
+      terminal.scrollPort_.setCtrlVPasteHacky(v);
     },
     'east-asian-ambiguous-as-two-column': function(v) {
       lib.wc.regardCjkAmbiguous = v;
