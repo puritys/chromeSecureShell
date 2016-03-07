@@ -5779,10 +5779,12 @@ hterm.Keyboard.prototype.onKeyDown_ = function(e) {
           term_.document_.execCommand('paste');
           e.preventDefault();
           e.stopPropagation();
+
+          // Send control to fix paste repeatition.
           this.terminal.onVTKeystroke(getAction('control'));
           return;
       } catch (e) {
-          console.log(e);
+          //console.log(e);
       }
   }
 
