@@ -13,7 +13,7 @@ The following are the new options that I added.
 * ctrl-v-paste-hacky : Force the key ctrl+v to paste content from the clipboard.
 * meta-plus-arrow-switch-tab :
 * ctrl-plus-arrow-switch-tab :
-
+* enable-input-method: Enable the ime-mode for typing chinese word. (使用方式為: 先勾選 enable-input-metod，然後在 Terminal 中點選遊標，這時遊標就會變成中空的樣式，就可以輸入中文。)
 
 # Installation
 

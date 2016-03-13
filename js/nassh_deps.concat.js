@@ -6981,6 +6981,11 @@ hterm.PreferenceManager.defaultPreferences = {
   'enable-dec12': false,
 
   /**
+   * Support chinese word.
+   */
+  'enable-input-method': false,
+
+  /**
    * The default environment variables.
    */
   'environment': {'TERM': 'xterm-256color'},
@@ -8496,6 +8501,7 @@ hterm.ScrollPort.prototype.decorate = function(div) {
       'DOMMouseScroll', this.onScrollWheel_.bind(this));
   this.screen_.addEventListener('copy', this.onCopy_.bind(this));
   this.screen_.addEventListener('paste', this.onPaste_.bind(this));
+//  this.screen_.addEventListener('focus', this.onFocus_.bind(this));
 
   doc.body.addEventListener('keydown', this.onBodyKeyDown_.bind(this));
 
@@ -8648,6 +8654,11 @@ hterm.ScrollPort.prototype.setBackgroundSize = function(size) {
 hterm.ScrollPort.prototype.setBackgroundPosition = function(position) {
   this.screen_.style.backgroundPosition = position;
 };
+
+hterm.ScrollPort.prototype.setEnableInputMethod = function(v) {
+  this.enableInputMethod = v;
+};
+
 
 hterm.ScrollPort.prototype.setCtrlVPaste = function(ctrlVPaste) {
   this.ctrlVPaste = ctrlVPaste;
@@ -9444,6 +9455,18 @@ hterm.ScrollPort.prototype.onResize_ = function(e) {
   this.resize();
 };
 
+//hterm.ScrollPort.prototype.onFocus_ = function(e) {
+//  if (true === this.enableInputMethod && 
+//      term_ &&
+//      term_.cursorNode_
+//  ) {
+//      this.iframe_.focus();
+//      term_.cursorNode_.value = "";
+//      term_.cursorNode_.focus();
+//  } 
+//
+//};
+
 /**
  * Clients can override this if they want to hear copy events.
  *
@@ -9964,6 +9987,11 @@ hterm.Terminal.prototype.setProfile = function(profileId, opt_callback) {
 
     'enable-dec12': function(v) {
       terminal.vt.enableDec12 = !!v;
+    },
+
+    'enable-input-method': function(v) {
+      terminal.enableInputMethod = v;
+      terminal.scrollPort_.setEnableInputMethod(v);
     },
 
     'font-family': function(v) {
@@ -10770,6 +10798,7 @@ hterm.Terminal.prototype.interpret = function(str) {
  * @param {HTMLDivElement} div The div to use as the terminal display.
  */
 hterm.Terminal.prototype.decorate = function(div) {
+  var self = this;
   this.div_ = div;
 
   this.scrollPort_.decorate(div);
@@ -10829,11 +10858,30 @@ hterm.Terminal.prototype.decorate = function(div) {
   var cssRules = styleSheets[styleSheets.length - 1].cssRules;
   this.wcCssRule_ = cssRules[cssRules.length - 1];
 
-  this.cursorNode_ = this.document_.createElement('div');
+  this.cursorNode_ = this.document_.createElement('input');
+  this.cursorNode_.addEventListener("keyup", function (e) {
+      e.preventDefault();
+      e.stopPropagation();
+      if (e.which == 13) {
+        this.scrollPort_.focus();
+      } else {
+        setTimeout(function () {
+          e.target.value = "";
+        }.bind(this), 0);
+      }
+  }.bind(this));
+
+  ["keypress"].forEach(function (event) {
+    self.cursorNode_.addEventListener(event, function (e) {
+       e.stopPropagation();
+    });
+  });
+
   this.cursorNode_.className = 'cursor-node';
   this.cursorNode_.style.cssText =
       ('position: absolute;' +
        'top: -99px;' +
+       'outline: none;' + 
        'display: block;' +
        'width: ' + this.scrollPort_.characterSize.width + 'px;' +
        'height: ' + this.scrollPort_.characterSize.height + 'px;' +
@@ -10892,7 +10940,11 @@ hterm.Terminal.prototype.getDocument = function() {
  * Focus the terminal.
  */
 hterm.Terminal.prototype.focus = function() {
-  this.scrollPort_.focus();
+  if (!this.enableInputMethod) {
+      this.scrollPort_.focus();
+  } else {
+      this.cursorNode_.focus();
+  }
 };
 
 /**
@@ -11996,9 +12048,10 @@ hterm.Terminal.prototype.syncCursorPosition_ = function() {
   }
 
   if (this.options_.cursorVisible &&
-      this.cursorNode_.style.display == 'none') {
+      this.cursorNode_.style.display == 'none'
+  ) {
     // Re-display the terminal cursor if it was hidden by the mouse cursor.
-    this.cursorNode_.style.display = '';
+      this.cursorNode_.style.display = '';
   }
 
 
@@ -12032,8 +12085,14 @@ hterm.Terminal.prototype.restyleCursor_ = function() {
   }
 
   var style = this.cursorNode_.style;
+  var width = this.scrollPort_.characterSize.width;
 
-  style.width = this.scrollPort_.characterSize.width + 'px';
+  //if (true === this.enableInputMethod && 
+  //    this.document_.activeElement.className == "cursor-node") {
+  //    width += 30;
+  //    //this.cursorNode_.placeholder = 'Chinese';
+  //}
+  style.width = width + 'px';
 
   switch (shape) {
     case hterm.Terminal.cursorShape.BEAM:
@@ -12360,7 +12419,8 @@ hterm.Terminal.prototype.onMouse_ = function(e) {
     // with local text selection.
     if (e.terminalRow - 1 == this.screen_.cursorPosition.row &&
         e.terminalColumn - 1 == this.screen_.cursorPosition.column) {
-      this.cursorNode_.style.display = 'none';
+      if (false === this.enableInputMethod)
+          this.cursorNode_.style.display = 'none';
     } else if (this.cursorNode_.style.display == 'none') {
       this.cursorNode_.style.display = '';
     }
