@@ -7,8 +7,9 @@ Auto login to SSH server: I add a new feature that can save the password in the 
 
 <iframe width="420" height="315" src="https://www.youtube.com/embed/HUN-UcVibOU" frameborder="0" allowfullscreen></iframe>
 
-[![IMAGE ALT TEXT](http://img.youtube.com/vi/HUN-UcVibOU/3.jpg)](http://www.youtube.com/watch?v=HUN-UcVibOU "Video Title")
-
+<a href="http://www.youtube.com/watch?v=HUN-UcVibOU" target="_blank">
+  <img src="http://img.youtube.com/vi/HUN-UcVibOU/2.jpg">
+</a>
 # Options
 
 The following are the new options that I added.
