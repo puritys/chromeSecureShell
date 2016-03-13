@@ -10859,6 +10859,14 @@ hterm.Terminal.prototype.decorate = function(div) {
   this.wcCssRule_ = cssRules[cssRules.length - 1];
 
   this.cursorNode_ = this.document_.createElement('input');
+  this.cursorNode_.addEventListener("click", function (e) {
+      e.preventDefault();
+      e.stopPropagation();
+      setTimeout(function () {
+        this.cursorNode_.focus();
+      }.bind(this), 0);
+  }.bind(this));
+
   this.cursorNode_.addEventListener("keyup", function (e) {
       e.preventDefault();
       e.stopPropagation();
@@ -10940,11 +10948,7 @@ hterm.Terminal.prototype.getDocument = function() {
  * Focus the terminal.
  */
 hterm.Terminal.prototype.focus = function() {
-  if (!this.enableInputMethod) {
       this.scrollPort_.focus();
-  } else {
-      this.cursorNode_.focus();
-  }
 };
 
 /**
