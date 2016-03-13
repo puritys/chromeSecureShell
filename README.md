@@ -18,13 +18,13 @@ So I improved it by adding more options.
 
 The following are the new options that I added.
 
-* meta-as-ctrl : Map the key command+v to be ctrl+v on Mac.
+* meta-as-ctrl : Map the key command+v to ctrl+v on Mac.
 * ctrl-v-paste-hacky : Force the key ctrl+v to paste content from the clipboard.
 * meta-plus-arrow-switch-tab :
 * ctrl-plus-arrow-switch-tab :
-* enable-input-method: Enable the ime-mode for typing chinese word. (使用方式為: 先勾選 enable-input-metod，然後在 Terminal 中點選遊標，這時遊標就會變成中空的樣式，就可以輸入中文。)
+* enable-input-method: Enable the ime-mode for entering chinese characters. (使用方式為: 先勾選 enable-input-metod，然後在 Terminal 中點選遊標，這時遊標就會變成中空的樣式，就可以輸入中文。)
 
-# Installation
+# How to install
 
 * git clone git@github.com:puritys/chromeSecureShell.git
 * Open the browser chrome and keyin the value "chrome://extensions/" into URL bar.
