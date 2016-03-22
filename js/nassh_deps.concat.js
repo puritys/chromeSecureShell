@@ -8501,7 +8501,7 @@ hterm.ScrollPort.prototype.decorate = function(div) {
       'DOMMouseScroll', this.onScrollWheel_.bind(this));
   this.screen_.addEventListener('copy', this.onCopy_.bind(this));
   this.screen_.addEventListener('paste', this.onPaste_.bind(this));
-  this.screen_.addEventListener('focus', this.onFocus_.bind(this));
+  this.screen_.addEventListener('click', this.onClick_.bind(this));
 
   doc.body.addEventListener('keydown', this.onBodyKeyDown_.bind(this));
 
@@ -9463,7 +9463,7 @@ hterm.ScrollPort.prototype.onResize_ = function(e) {
   this.resize();
 };
 
-hterm.ScrollPort.prototype.onFocus_ = function(e) {
+hterm.ScrollPort.prototype.onClick_ = function(e) {
   if (true === this.enableInputMethod && 
       this.term_ &&
       this.term_.cursorNode_
