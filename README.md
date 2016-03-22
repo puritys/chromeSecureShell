@@ -9,8 +9,8 @@ So I improved it by adding more options.
 
 
 # Demo Video
-<a href="http://www.youtube.com/watch?v=HUN-UcVibOU" target="_blank">
-  <img src="http://img.youtube.com/vi/HUN-UcVibOU/2.jpg">
+<a href="http://www.youtube.com/watch?v=6wygEEF8mDc" target="_blank">
+  <img src="http://img.youtube.com/vi/6wygEEF8mDc/2.jpg">
 </a>
 
 
