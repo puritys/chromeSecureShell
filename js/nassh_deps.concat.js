@@ -9468,8 +9468,10 @@ hterm.ScrollPort.prototype.onClick_ = function(e) {
       this.term_ &&
       this.term_.cursorNode_
   ) {
-      this.iframe_.focus();
-      this.term_.cursorNode_.focus();
+      setTimeout(function() {
+          this.iframe_.focus();
+          this.term_.cursorNode_.focus();
+      }.bind(this),0);
   } 
 
 };
