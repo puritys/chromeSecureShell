@@ -8501,7 +8501,7 @@ hterm.ScrollPort.prototype.decorate = function(div) {
       'DOMMouseScroll', this.onScrollWheel_.bind(this));
   this.screen_.addEventListener('copy', this.onCopy_.bind(this));
   this.screen_.addEventListener('paste', this.onPaste_.bind(this));
-//  this.screen_.addEventListener('focus', this.onFocus_.bind(this));
+  this.screen_.addEventListener('focus', this.onFocus_.bind(this));
 
   doc.body.addEventListener('keydown', this.onBodyKeyDown_.bind(this));
 
@@ -8624,7 +8624,15 @@ hterm.ScrollPort.prototype.setUserCss = function(url) {
 
 hterm.ScrollPort.prototype.focus = function() {
   this.iframe_.focus();
-  this.screen_.focus();
+  if (this.enableInputMethod === true && 
+      typeof(this.term_) != "undefined" && 
+      this.term_.cursorNode_
+  ) {
+      this.term_.cursorNode_.focus();
+  } else {
+    this.screen_.focus();
+  }
+
 };
 
 hterm.ScrollPort.prototype.getForegroundColor = function() {
@@ -9455,17 +9463,16 @@ hterm.ScrollPort.prototype.onResize_ = function(e) {
   this.resize();
 };
 
-//hterm.ScrollPort.prototype.onFocus_ = function(e) {
-//  if (true === this.enableInputMethod && 
-//      term_ &&
-//      term_.cursorNode_
-//  ) {
-//      this.iframe_.focus();
-//      term_.cursorNode_.value = "";
-//      term_.cursorNode_.focus();
-//  } 
-//
-//};
+hterm.ScrollPort.prototype.onFocus_ = function(e) {
+  if (true === this.enableInputMethod && 
+      this.term_ &&
+      this.term_.cursorNode_
+  ) {
+      this.iframe_.focus();
+      this.term_.cursorNode_.focus();
+  } 
+
+};
 
 /**
  * Clients can override this if they want to hear copy events.
@@ -9641,7 +9648,7 @@ hterm.Terminal = function(opt_profileId) {
   this.scrollPort_.subscribe('scroll', this.onScroll_.bind(this));
   this.scrollPort_.subscribe('paste', this.onPaste_.bind(this));
   this.scrollPort_.onCopy = this.onCopy_.bind(this);
-
+  this.scrollPort_.term_ = this;
   // The div that contains this terminal.
   this.div_ = null;
 
@@ -10851,12 +10858,18 @@ hterm.Terminal.prototype.decorate = function(div) {
        '  display: inline-block;' +
        '  text-align: center;' +
        '  width: ' + this.scrollPort_.characterSize.width * 2 + 'px;' +
+       '} ' +  
+       '.cursor-node {' +
+       '  text-indent: -999px;' + 
+       '}' + 
+       '.cursor-node.focus {' +
+       '  text-indent: auto;' + 
        '}');
   this.document_.head.appendChild(style);
 
   var styleSheets = this.document_.styleSheets;
   var cssRules = styleSheets[styleSheets.length - 1].cssRules;
-  this.wcCssRule_ = cssRules[cssRules.length - 1];
+  this.wcCssRule_ = cssRules[cssRules.length - 3];
 
   this.cursorNode_ = this.document_.createElement('input');
   this.cursorNode_.addEventListener("click", function (e) {
@@ -10879,11 +10892,20 @@ hterm.Terminal.prototype.decorate = function(div) {
       }
   }.bind(this));
 
-  ["keypress"].forEach(function (event) {
-    self.cursorNode_.addEventListener(event, function (e) {
-       e.stopPropagation();
-    });
+  self.cursorNode_.addEventListener("blur", function (e) {
+      e.target.className = "cursor-node";
   });
+  self.cursorNode_.addEventListener("focus", function (e) {
+      e.target.className += " focus";
+  });
+
+  //["keypress"].forEach(function (event) {
+  //  self.cursorNode_.addEventListener(event, function (e) {
+  //     if (e.which != 13) {
+  //         e.stopPropagation();
+  //     }
+  //  });
+  //});
 
   this.cursorNode_.className = 'cursor-node';
   this.cursorNode_.style.cssText =
@@ -10948,7 +10970,7 @@ hterm.Terminal.prototype.getDocument = function() {
  * Focus the terminal.
  */
 hterm.Terminal.prototype.focus = function() {
-      this.scrollPort_.focus();
+    this.scrollPort_.focus();
 };
 
 /**
