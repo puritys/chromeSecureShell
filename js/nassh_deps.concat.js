@@ -8628,7 +8628,7 @@ hterm.ScrollPort.prototype.focus = function() {
       typeof(this.term_) != "undefined" && 
       this.term_.cursorNode_
   ) {
-      this.term_.cursorNode_.focus();
+      this.term_.cursorNode_.imeNode.focus();
   } else {
     this.screen_.focus();
   }
@@ -9470,7 +9470,7 @@ hterm.ScrollPort.prototype.onClick_ = function(e) {
   ) {
       setTimeout(function() {
           this.iframe_.focus();
-          this.term_.cursorNode_.focus();
+          this.term_.cursorNode_.imeNode.focus();
       }.bind(this),0);
   } 
 
@@ -10849,12 +10849,29 @@ hterm.Terminal.prototype.decorate = function(div) {
       'blur', this.onFocusChange_.bind(this, false));
 
   var style = this.document_.createElement('style');
+  // cursor style
   style.textContent =
       ('.cursor-node[focus="false"] {' +
        '  box-sizing: border-box;' +
-       '  background-color: transparent !important;' +
        '  border-width: 2px;' +
-       '  border-style: solid;' +
+       '  border-style: dashed;' +
+       '}' +
+       '.cursor-node[focus="false"] input {' +
+       '  margin: 30px 0 0 8px;' +
+       '  border: 0;' +
+       '  background: transparent;' +
+       '  outline: none;' +
+       '  opacity: 0;' +
+       '  height: 10px;' +
+       '}' +
+       '.cursor-node .display {' +
+       '  position: absolute;' +
+       '  display: inline-block;' +
+       '  background: white;' +
+       '  margin: -40px 0 0 12px;' +
+       '  opacity: 0.9;' + 
+       '  width: 0px;'+
+       '  height: 25px;' +
        '}' +
        '.wc-node {' +
        '  display: inline-block;' +
@@ -10862,7 +10879,7 @@ hterm.Terminal.prototype.decorate = function(div) {
        '  width: ' + this.scrollPort_.characterSize.width * 2 + 'px;' +
        '} ' +  
        '.cursor-node {' +
-       '  text-indent: -999px;' + 
+       '  text-indent: 0 px;' + 
        '}' + 
        '.cursor-node.focus {' +
        '  text-indent: auto;' + 
@@ -10873,25 +10890,45 @@ hterm.Terminal.prototype.decorate = function(div) {
   var cssRules = styleSheets[styleSheets.length - 1].cssRules;
   this.wcCssRule_ = cssRules[cssRules.length - 3];
 
-  this.cursorNode_ = this.document_.createElement('input');
+  this.cursorNode_ = this.document_.createElement('span');
+  var imeNode = this.document_.createElement('input');
+  this.cursorNode_.appendChild(imeNode);
+  this.cursorNode_.imeNode = imeNode;
+  var displayNode = this.document_.createElement('span');
+  displayNode.className = "display";
+  this.cursorNode_.appendChild(displayNode);
+  this.cursorNode_.displayNode = displayNode;
+
+
   this.cursorNode_.addEventListener("click", function (e) {
       e.preventDefault();
       e.stopPropagation();
       setTimeout(function () {
-        this.cursorNode_.focus();
+        this.cursorNode_.imeNode.focus();
       }.bind(this), 0);
   }.bind(this));
 
   this.cursorNode_.addEventListener("keyup", function (e) {
+      var value = "";
       e.preventDefault();
       e.stopPropagation();
+      value = e.target.value;
+      //console.log(value +  "  " + encodeURIComponent(value));
       if (e.which == 13) {
+        // space
         this.scrollPort_.focus();
-      } else {
-        setTimeout(function () {
-          e.target.value = "";
-        }.bind(this), 0);
+      } else if (e.which == 32 || e.which == 91) {
+        value = "";
+      } else if (e.which == 8 && value == String.fromCharCode(8)) {
+        value = "";
       }
+      setTimeout(function () {
+        var len = 0;
+        if (value) len = value.length;
+        e.target.value = value;
+        this.cursorNode_.displayNode.innerHTML = value;
+        this.cursorNode_.displayNode.style.width = len * 20 + "px";
+      }.bind(this), 0);
   }.bind(this));
 
   self.cursorNode_.addEventListener("blur", function (e) {
