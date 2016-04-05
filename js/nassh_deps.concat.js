@@ -10856,6 +10856,10 @@ hterm.Terminal.prototype.decorate = function(div) {
        '  border-width: 2px;' +
        '  border-style: dashed;' +
        '}' +
+       '.cursor-node input {' +
+       '  opacity: 0;' +
+       '  height: 0px;' +
+       '}' +
        '.cursor-node[focus="false"] input {' +
        '  margin: 30px 0 0 8px;' +
        '  border: 0;' +
@@ -10865,6 +10869,10 @@ hterm.Terminal.prototype.decorate = function(div) {
        '  height: 10px;' +
        '}' +
        '.cursor-node .display {' +
+       '  width: 0px;'+
+       '  height: 0px;' +
+       '}' +
+       '.cursor-node[focus="false"] .display {' +
        '  position: absolute;' +
        '  display: inline-block;' +
        '  background: white;' +
