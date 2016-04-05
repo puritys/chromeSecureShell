@@ -10853,8 +10853,9 @@ hterm.Terminal.prototype.decorate = function(div) {
   style.textContent =
       ('.cursor-node[focus="false"] {' +
        '  box-sizing: border-box;' +
+       '  background: transparent !important;' +
        '  border-width: 2px;' +
-       '  border-style: dashed;' +
+       '  border-style: solid;' +
        '}' +
        '.cursor-node input {' +
        '  opacity: 0;' +
