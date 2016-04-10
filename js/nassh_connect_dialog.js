@@ -854,6 +854,7 @@ nassh.ConnectDialog.prototype.onOptionsClick_ = function(e) {
  */
 nassh.ConnectDialog.prototype.onFormKeyUp_ = function(e) {
   if (e.keyCode == 13) {  // ENTER
+    if (e.target.id == "field-password") return ;
     this.connect();
   } else if (e.keyCode == 27) {  // ESC
     this.syncForm_();
