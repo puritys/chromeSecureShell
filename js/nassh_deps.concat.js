@@ -5767,8 +5767,6 @@ hterm.Keyboard.prototype.onKeyUp_ = function(e) {
  */
 hterm.Keyboard.prototype.onKeyDown_ = function(e) {
 
-  //console.log(e);
-
   if (e.keyCode == 18)
     this.altKeyPressed = this.altKeyPressed | (1 << (e.location - 1));
 
@@ -5776,7 +5774,13 @@ hterm.Keyboard.prototype.onKeyDown_ = function(e) {
       e.ctrlKey == true && e.which == 86
   ) {
       try {
+
         term_.document_.execCommand('paste');
+          setTimeout(function() {
+              this.iframe_.focus();
+              this.term_.cursorNode_.imeNode.focus();
+          }.bind(term_.scrollPort_),0);
+
         return hterm.Keyboard.KeyActions.PASS;
       } catch (e) {
       }
