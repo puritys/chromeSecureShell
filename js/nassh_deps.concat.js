@@ -10921,12 +10921,22 @@ hterm.Terminal.prototype.decorate = function(div) {
       }.bind(this), 0);
   }.bind(this));
 
+  this.cursorNode_.addEventListener("keydown", function (e) {
+      if (e.which == 229 && e.code === "Space") {
+          setTimeout(function () {
+            this.scrollPort_.focus();
+            e.target.value = "";
+          }.bind(this), 10);
+    }
+  }.bind(this));
+
   this.cursorNode_.addEventListener("keyup", function (e) {
       var value = "";
+    //  console.log(value +  "  :  " + encodeURIComponent(value));
+      //console.log(e.which);
       e.preventDefault();
       e.stopPropagation();
       value = e.target.value;
-      //console.log(value +  "  " + encodeURIComponent(value));
       if (e.which == 13) {
         // space
         this.scrollPort_.focus();
@@ -10948,6 +10958,7 @@ hterm.Terminal.prototype.decorate = function(div) {
       e.target.className = "cursor-node";
   });
   self.cursorNode_.addEventListener("focus", function (e) {
+
       e.target.className += " focus";
   });
 
