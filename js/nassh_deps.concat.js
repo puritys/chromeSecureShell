@@ -10926,7 +10926,7 @@ hterm.Terminal.prototype.decorate = function(div) {
           setTimeout(function () {
             this.scrollPort_.focus();
             e.target.value = "";
-          }.bind(this), 10);
+          }.bind(this), 0);
     }
   }.bind(this));
 
