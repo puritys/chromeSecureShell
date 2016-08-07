@@ -39,6 +39,6 @@ The following are the new options that I added for chrome SSH extension.
 * git clone git@github.com:puritys/chromeSecureShell.git
 * 打開瀏覽器，輸入 "chrome://extensions/"。
 * 在右上角，打開開發者模式。
-* 點擊載入未封裝的 extension ，再選擇資料夾 "chromeSecureShell"。
+* 點擊 "載入未封裝程式" ，再選擇資料夾 "chromeSecureShell"。
 
 
