@@ -5,7 +5,7 @@ So I improved it by adding more options.
 
 1. Automatically login to SSH server: I add a new feature that can save the password in the local storage. It will automatically login in server without typing password.
 
-2. Chinese characters typing:
+2. Chinese characters typing. (You can use any input methods it depends on your system.)
 
 
 # Demo Video
