@@ -41,4 +41,17 @@ The following are the new options that I added for chrome SSH extension.
 * 在右上角，打開開發者模式。
 * 點擊 "載入未封裝程式" ，再選擇資料夾 "chromeSecureShell"。
 
+# 基本設定
+
+安裝成功後，請打開 option，我有新加了一些設定，你可以自行決定哪些功能要打開：
+
+* meta-as-ctrl : 將 Mac 的 command 變成 ctrl ，我習慣將 Mac 的 command 與 ctrl 對調，變成 ctrl+c 中斷功能失效，所以這個功能就是不管 command 還是 ctrl ，都當是成 ctrl。
+* ctrl-v-paste-hacky : 我習慣將 Mac 的 command 與 ctrl 對調，所以新增這個功能，強迫 Ctrl + v 為貼上，剛好負負得正，原 Mac command + v 也會保留貼上功能。
+* meta-plus-arrow-switch-tab : [command + 左右方向鍵]，切換 tab
+* ctrl-plus-arrow-switch-tab : [ctrl + 左右方向鍵]，切換 tab
+* enable-input-method: 啟用這個功能，就可以在 Terminal 輸入中文，各種輸入法都能使用。
+
+
+
+
 
