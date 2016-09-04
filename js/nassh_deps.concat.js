@@ -5775,7 +5775,7 @@ hterm.Keyboard.prototype.onKeyDown_ = function(e) {
   ) {
       try {
 
-        term_.document_.execCommand('paste');
+          term_.document_.execCommand('paste');
           setTimeout(function() {
               this.iframe_.focus();
               this.term_.cursorNode_.imeNode.focus();
@@ -5790,8 +5790,8 @@ hterm.Keyboard.prototype.onKeyDown_ = function(e) {
     (e.ctrlKey && this.ctrlPlusArrowSwitchTab) ||
     (e.metaKey && this.metaPlusArrowSwitchTab)
   ) {
-    if (e.keyCode == 37 || e.keyCode == 39) { 
-        // Arrow: Left Right 
+        if (e.keyCode == 37 || e.keyCode == 39) { 
+            // Arrow: Left Right 
         chrome.tabs.getCurrent(function (tab) {
             var windowId, activeTabId;
             activeTabId = tab.id;
@@ -10922,7 +10922,14 @@ hterm.Terminal.prototype.decorate = function(div) {
   }.bind(this));
 
   this.cursorNode_.addEventListener("keydown", function (e) {
-      if (e.which == 229 && e.code === "Space") {
+    console.log("keydown ", e.which, " code = " , e.code, " ", e);
+    /*
+     * 229: in composition, Space: complate character typing.
+     * 45: Shift + Insert: paste need to clear input
+     */
+    if ((e.which === 229 && e.code === "Space") ||
+        (e.which === 45 && e.shiftKey === true)
+    ) {
           setTimeout(function () {
             this.scrollPort_.focus();
             e.target.value = "";
