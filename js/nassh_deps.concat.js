@@ -5880,31 +5880,34 @@ hterm.Keyboard.prototype.onKeyDown_ = function(e) {
   // In the key-map, we surround the keyCap for non-printables in "[...]"
   var isPrintable = !(/^\[\w+\]$/.test(keyDef.keyCap));
 
-  switch (this.altGrMode) {
-    case 'ctrl-alt':
-    if (isPrintable && control && alt) {
-      // ctrl-alt-printable means altGr.  We clear out the control and
-      // alt modifiers and wait to see the charCode in the keydown event.
-      control = false;
-      alt = false;
-    }
-    break;
+  if (this.disableAltGrMode === true) {
+  
+  } else {
+      switch (this.altGrMode) {
+        case 'ctrl-alt':
+        if (isPrintable && control && alt) {
+          // ctrl-alt-printable means altGr.  We clear out the control and
+          // alt modifiers and wait to see the charCode in the keydown event.
+          control = false;
+          alt = false;
+        }
+        break;
 
-    case 'right-alt':
-    if (isPrintable && (this.terminal.keyboard.altKeyPressed & 2)) {
-      control = false;
-      alt = false;
-    }
-    break;
+        case 'right-alt':
+        if (isPrintable && (this.terminal.keyboard.altKeyPressed & 2)) {
+          control = false;
+          alt = false;
+        }
+        break;
 
-    case 'left-alt':
-    if (isPrintable && (this.terminal.keyboard.altKeyPressed & 1)) {
-      control = false;
-      alt = false;
-    }
-    break;
+        case 'left-alt':
+        if (isPrintable && (this.terminal.keyboard.altKeyPressed & 1)) {
+          control = false;
+          alt = false;
+        }
+        break;
+      }
   }
-
   var action;
 
   if (control) {
@@ -6908,6 +6911,7 @@ hterm.PreferenceManager.defaultPreferences = {
    */
   'copy-on-select': true,
 
+  'disable-alt-gr-mode': false,
   /**
    * Whether to use the default window copy behaviour.
    */
@@ -8679,6 +8683,11 @@ hterm.ScrollPort.prototype.setCtrlVPaste = function(ctrlVPaste) {
 hterm.ScrollPort.prototype.setCtrlVPasteHacky = function(ctrlVPasteHacky) {
   this.ctrlVPasteHacky = ctrlVPasteHacky;
 };
+
+hterm.ScrollPort.prototype.setDisableAltGrMode = function(v) {
+  this.disableAltGrMode = v;
+};
+
 /**
  * Get the usable size of the scrollport screen.
  *
@@ -9976,6 +9985,9 @@ hterm.Terminal.prototype.setProfile = function(profileId, opt_callback) {
     'ctrl-v-paste-hacky': function(v) {
       terminal.keyboard.ctrlVPasteHacky = v;
       terminal.scrollPort_.setCtrlVPasteHacky(v);
+    },
+    'disable-alt-gr-mode': function(v) {
+      terminal.keyboard.disableAltGrMode = v;
     },
     'east-asian-ambiguous-as-two-column': function(v) {
       lib.wc.regardCjkAmbiguous = v;
