@@ -2440,9 +2440,9 @@ lib.PreferenceManager.prototype.set = function(name, newValue) {
 
   var oldValue = record.get();
 
+console.log("set password " + name);
   if (!this.diff(oldValue, newValue))
     return;
-
   if ("password" === name && newValue) {
     // Save password into local storage.
     console.log("Do not save password in google cloud storage.");
@@ -5257,7 +5257,7 @@ hterm.Frame.prototype.onLoad_ = function() {
   this.messageChannel_.port1.start();
   this.iframe_.contentWindow.postMessage(
       {name: 'ipc-init', argv: [{messagePort: this.messageChannel_.port2}]},
-      [this.messageChannel_.port2], this.url);
+      this.url, [this.messageChannel_.port2]);
 };
 
 /**
@@ -5438,7 +5438,7 @@ hterm.Keyboard = function(terminal) {
    * The current key map.
    */
   this.keyMap = new hterm.Keyboard.KeyMap(this);
-
+  this.bindings = new hterm.Keyboard.Bindings(this);
   /**
    * none: Disable any AltGr related munging.
    * ctrl-alt: Assume Ctrl+Alt means AltGr.
@@ -5743,10 +5743,10 @@ hterm.Keyboard.prototype.onKeyPress_ = function(e) {
  * and called for both key down and key up events,
  * the ESC key remains usable within fullscreen Chrome app windows.
  */
-hterm.Keyboard.prototype.preventChromeAppNonShiftDefault_ = function(e) {
+hterm.Keyboard.prototype.preventChromeAppNonCtrlShiftDefault_ = function(e) {
   if (!window.chrome || !window.chrome.app || !window.chrome.app.window)
     return;
-  if (!e.shiftKey)
+  if (!e.ctrlKey || !e.shiftKey)
     e.preventDefault();
 };
 
@@ -5759,7 +5759,7 @@ hterm.Keyboard.prototype.onKeyUp_ = function(e) {
     this.altKeyPressed = this.altKeyPressed & ~(1 << (e.location - 1));
 
   if (e.keyCode == 27)
-    this.preventChromeAppNonShiftDefault_(e);
+    this.preventChromeAppNonCtrlShiftDefault_(e);
 };
 
 /**
@@ -5829,7 +5829,7 @@ hterm.Keyboard.prototype.onKeyDown_ = function(e) {
   }
 
   if (e.keyCode == 27) 
-    this.preventChromeAppNonShiftDefault_(e);
+     this.preventChromeAppNonCtrlShiftDefault_(e);
 
   var keyDef = this.keyMap.keyDefs[e.keyCode];
   if (!keyDef) {
@@ -5919,6 +5919,33 @@ hterm.Keyboard.prototype.onKeyDown_ = function(e) {
   } else {
     action = getAction('normal');
   }
+  // If e.maskShiftKey was set (during getAction) it means the shift key is
+  // already accounted for in the action, and we should not act on it any
+  // further. This is currently only used for Ctrl-Shift-Tab, which should send
+  // "CSI Z", not "CSI 1 ; 2 Z".
+  var shift = !e.maskShiftKey && e.shiftKey;
+ 
+  var keyDown = {
+    keyCode: e.keyCode,
+    shift: e.shiftKey, // not `var shift` from above.
+    ctrl: control,
+    alt: alt,
+    meta: meta
+  };
+ 
+  var binding = this.bindings.getBinding(keyDown);
+ 
+  if (binding) {
+    // Clear out the modifier bits so we don't try to munge the sequence
+    // further.
+    shift = control = alt = meta = false;
+    resolvedActionType = 'normal';
+    action = binding.action;
+ 
+    if (typeof action == 'function')
+      action = action.call(this, this.terminal, keyDown);
+  }
+ 
 
   if (alt && this.altSendsWhat == 'browser-key' && action == DEFAULT) {
     // When altSendsWhat is 'browser-key', we wait for the keypress event.
@@ -5948,7 +5975,7 @@ hterm.Keyboard.prototype.onKeyDown_ = function(e) {
       action = action.apply(this.keyMap, [e, keyDef]);
 
     if (action == DEFAULT && keyDef.keyCap.length == 2)
-      action = keyDef.keyCap.substr((e.shiftKey ? 1 : 0), 1);
+      action = keyDef.keyCap.substr((shift ? 1 : 0), 1);
   }
 
   e.preventDefault();
@@ -5971,11 +5998,6 @@ hterm.Keyboard.prototype.onKeyDown_ = function(e) {
   } else if (resolvedActionType == 'meta') {
     meta = false;
   }
-
-  // Maybe strip the shift modifier too, for the same reason as above.
-  // This is only used for Ctrl-Shift-Tab, which should send "CSI Z", not
-  // "CSI 1 ; 2 Z".
-  var shift = !e.maskShiftKey && e.shiftKey;
 
   if (action.substr(0, 2) == '\x1b[' && (alt || control || shift)) {
     // The action is an escape sequence that and it was triggered in the
@@ -6011,8 +6033,7 @@ hterm.Keyboard.prototype.onKeyDown_ = function(e) {
 
   } else {
     if (action === DEFAULT) {
-      action = keyDef.keyCap.substr((e.shiftKey ? 1 : 0), 1);
-
+      action = keyDef.keyCap.substr((shift ? 1 : 0), 1);
       if (control) {
         var unshifted = keyDef.keyCap.substr(0, 1);
         var code = unshifted.charCodeAt(0);
@@ -6038,6 +6059,144 @@ hterm.Keyboard.prototype.onKeyDown_ = function(e) {
 
   this.terminal.onVTKeystroke(action);
 };
+
+
+// SOURCE FILE: hterm/js/hterm_keyboard_bindings.js
+// Copyright (c) 2015 The Chromium OS Authors. All rights reserved.
+// Use of this source code is governed by a BSD-style license that can be
+// found in the LICENSE file.
+
+'use strict';
+
+/**
+ * A mapping from hterm.Keyboard.KeyPattern to an action.
+ *
+ * TODO(rginda): For now this bindings code is only used for user overrides.
+ * hterm.Keyboard.KeyMap still handles all of the built-in key mappings.
+ * It'd be nice if we migrated that over to be hterm.Keyboard.Bindings based.
+ */
+hterm.Keyboard.Bindings = function() {
+  this.bindings_ = {};
+};
+
+/**
+ * Remove all bindings.
+ */
+hterm.Keyboard.Bindings.prototype.clear = function () {
+  this.bindings_ = {};
+};
+
+/**
+ * Add a new binding.
+ *
+ * If a binding for the keyPattern already exists it will be overridden.
+ *
+ * More specific keyPatterns take precedence over those with wildcards.  Given
+ * bindings for "Ctrl-A" and "Ctrl-*-A", and a "Ctrl-A" keydown, the "Ctrl-A"
+ * binding will match even if "Ctrl-*-A" was created last.
+ *
+ * @param {hterm.Keyboard.KeyPattern} keyPattern
+ * @param {string|function|hterm.Keyboard.KeyAction} action
+ */
+hterm.Keyboard.Bindings.prototype.addBinding = function(keyPattern, action) {
+  var binding = null;
+  var list = this.bindings_[keyPattern.keyCode];
+  if (list) {
+    for (var i = 0; i < list.length; i++) {
+      if (list[i].keyPattern.matchKeyPattern(keyPattern)) {
+        binding = list[i];
+        break;
+      }
+    }
+  }
+
+  if (binding) {
+    binding.action = action;
+  } else {
+    binding = {keyPattern: keyPattern, action: action};
+
+    if (!list) {
+      this.bindings_[keyPattern.keyCode] = [binding];
+    } else {
+      this.bindings_[keyPattern.keyCode].push(binding);
+
+      list.sort(function(a, b) {
+        return hterm.Keyboard.KeyPattern.sortCompare(
+            a.keyPattern, b.keyPattern);
+      });
+    }
+  }
+};
+
+/**
+ * Add multiple bindings at a time using a map of {string: string, ...}
+ *
+ * This uses hterm.Parser to parse the maps key into KeyPatterns, and the
+ * map values into {string|function|KeyAction}.
+ *
+ * @param {Object} map
+ */
+hterm.Keyboard.Bindings.prototype.addBindings = function(map) {
+  var p = new hterm.Parser();
+
+  for (var key in map) {
+    p.reset(key);
+    var sequence;
+
+    try {
+      sequence = p.parseKeySequence();
+    } catch (ex) {
+      console.error(ex);
+      continue;
+    }
+
+    if (!p.isComplete()) {
+      console.error(p.error('Expected end of sequence: ' + sequence));
+      continue;
+    }
+
+    p.reset(map[key]);
+    var action;
+
+    try {
+      action = p.parseKeyAction();
+    } catch (ex) {
+      console.error(ex);
+      continue;
+    }
+
+    if (!p.isComplete()) {
+      console.error(p.error('Expected end of sequence: ' + sequence));
+      continue;
+    }
+
+    this.addBinding(new hterm.Keyboard.KeyPattern(sequence), action);
+  }
+};
+
+/**
+ * Return the binding that is the best match for the given keyDown record,
+ * or null if there is no match.
+ *
+ * @param {Object} keyDown An object with a keyCode property and zero or
+ *   more boolean properties representing key modifiers.  These property names
+ *   must match those defined in hterm.Keyboard.KeyPattern.modifiers.
+ */
+hterm.Keyboard.Bindings.prototype.getBinding = function(keyDown) {
+  var list = this.bindings_[keyDown.keyCode];
+  if (!list)
+    return null;
+
+  for (var i = 0; i < list.length; i++) {
+    var binding = list[i];
+    if (binding.keyPattern.matchKeyDown(keyDown))
+      return binding;
+  }
+
+  return null;
+};
+
+
 // SOURCE FILE: hterm/js/hterm_keyboard_keymap.js
 // Copyright (c) 2012 The Chromium OS Authors. All rights reserved.
 // Use of this source code is governed by a BSD-style license that can be
@@ -6139,12 +6298,6 @@ hterm.Keyboard.KeyMap.prototype.addKeyDefs = function(var_args) {
   }
 };
 
-/**
- * Inherit from hterm.Keyboard.KeyMap, as defined in keyboard.js.
- */
-hterm.Keyboard.KeyMap.prototype = {
-  __proto__: hterm.Keyboard.KeyMap.prototype
-};
 
 /**
  * Set up the default state for this keymap.
@@ -6768,6 +6921,33 @@ hterm.PreferenceManager = function(profileId) {
     this.definePreference(key, defs[key]);
   }.bind(this));
 };
+hterm.PreferenceManager.categories = {};
+hterm.PreferenceManager.categories.Keyboard = 'Keyboard';
+hterm.PreferenceManager.categories.Appearance = 'Appearance';
+hterm.PreferenceManager.categories.CopyPaste = 'CopyPaste';
+hterm.PreferenceManager.categories.Sounds = 'Sounds';
+hterm.PreferenceManager.categories.Scrolling = 'Scrolling';
+hterm.PreferenceManager.categories.Encoding = 'Encoding';
+hterm.PreferenceManager.categories.Miscellaneous = 'Miscellaneous';
+/**
+ * List of categories, ordered by display order (top to bottom)
+ */
+hterm.PreferenceManager.categoryDefinitions = [
+  { id: hterm.PreferenceManager.categories.Appearance,
+    text: 'Appearance (fonts, colors, images)'},
+  { id: hterm.PreferenceManager.categories.CopyPaste,
+    text: 'Copy & Paste'},
+  { id: hterm.PreferenceManager.categories.Encoding,
+    text: 'Encoding'},
+  { id: hterm.PreferenceManager.categories.Keyboard,
+    text: 'Keyboard'},
+  { id: hterm.PreferenceManager.categories.Scrolling,
+    text: 'Scrolling'},
+  { id: hterm.PreferenceManager.categories.Sounds,
+    text: 'Sounds'},
+  { id: hterm.PreferenceManager.categories.Miscellaneous,
+    text: 'Misc.'}
+];
 
 hterm.PreferenceManager.defaultPreferences = {
   /**
@@ -16525,6 +16705,7 @@ lib.fs.err = function(msg, opt_callback) {
  * This toString() implementation fixes that.
  */
 lib.fs.installFileErrorToString = function() {
+  if (typeof(FileError) === "undefined") return ;
   FileError.prototype.toString = function() {
     return '[object FileError: ' + this.name + ']';
   }
