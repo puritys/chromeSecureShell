@@ -2440,7 +2440,6 @@ lib.PreferenceManager.prototype.set = function(name, newValue) {
 
   var oldValue = record.get();
 
-console.log("set password " + name);
   if (!this.diff(oldValue, newValue))
     return;
   if ("password" === name && newValue) {
