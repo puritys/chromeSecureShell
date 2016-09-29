@@ -44,5 +44,4 @@
     // chrome.getBackgroundPage().
     window.app = app;
   }, console.log.bind(console));
-
 })();
