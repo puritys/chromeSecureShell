@@ -8852,6 +8852,12 @@ hterm.ScrollPort.prototype.setBackgroundPosition = function(position) {
 
 hterm.ScrollPort.prototype.setEnableInputMethod = function(v) {
   this.enableInputMethod = v;
+  if (!this.enableInputMethod && term_.cursorNode_.imeNode) {
+    var node = term_.cursorNode_.imeNode;
+    if (node) {
+        term_.cursorNode_.removeChild(node);
+    }
+  } 
 };
 
 
@@ -11218,6 +11224,7 @@ hterm.Terminal.prototype.decorate = function(div) {
 
   this.scrollPort_.focus();
   this.scrollPort_.scheduleRedraw();
+
 };
 
 /**
@@ -12373,6 +12380,7 @@ hterm.Terminal.prototype.restyleCursor_ = function() {
 
   var style = this.cursorNode_.style;
   var width = this.scrollPort_.characterSize.width;
+
 
   //if (true === this.enableInputMethod && 
   //    this.document_.activeElement.className == "cursor-node") {
