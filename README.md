@@ -52,6 +52,11 @@ The following are the new options that I added for chrome SSH extension.
 * enable-input-method: 啟用這個功能，就可以在 Terminal 輸入中文，各種輸入法都能使用。
 
 
+# SSH Agent
+
+Google 在 2018 年 01 月，已開發 Chrome ssh agent ，你可以安裝這個 Extension，就能夠使用 Private Key login SSH server.
+* https://github.com/google/chrome-ssh-agent
+
 
 
 
