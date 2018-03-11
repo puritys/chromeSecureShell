@@ -58,6 +58,9 @@ Google 在 2018 年 01 月，已開發 Chrome ssh agent ，你可以安裝這個
 * https://github.com/google/chrome-ssh-agent
 
 
+# Settings
+
+- My Style and Font: https://www.puritys.me/filemanage/ssh.css
 
 # Development
 - hterm: https://github.com/chromium/hterm
