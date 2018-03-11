@@ -45,7 +45,7 @@ if (typeof lib != 'undefined')
   throw new Error('Global "lib" object already exists.');
 
 var lib = {};
-
+var globalSetting = {};
 var cryptoJS_passphrase = window.navigator.userAgent;
 
 /**
@@ -5765,7 +5765,6 @@ hterm.Keyboard.prototype.onKeyUp_ = function(e) {
  * Handle onKeyDown events.
  */
 hterm.Keyboard.prototype.onKeyDown_ = function(e) {
-
   if (e.keyCode == 18)
     this.altKeyPressed = this.altKeyPressed | (1 << (e.location - 1));
 
@@ -5773,14 +5772,9 @@ hterm.Keyboard.prototype.onKeyDown_ = function(e) {
       e.ctrlKey == true && e.which == 86
   ) {
       try {
-
           term_.document_.execCommand('paste');
-          setTimeout(function() {
-              this.iframe_.focus();
-              this.term_.cursorNode_.imeNode.focus();
-          }.bind(term_.scrollPort_),0);
-
-        return hterm.Keyboard.KeyActions.PASS;
+          focusImeNode(this.term_.cursorNode_.imeNode);
+          return hterm.Keyboard.KeyActions.PASS;
       } catch (e) {
       }
   }
@@ -8644,6 +8638,10 @@ hterm.ScrollPort.prototype.decorate = function(div) {
   this.iframe_.contentWindow.addEventListener('resize',
                                               this.onResize_.bind(this));
 
+  // Focus ime input when user move back to termial
+  this.iframe_.contentWindow.addEventListener('focus',
+                                              this.focus.bind(this));
+
   var doc = this.document_ = this.iframe_.contentDocument;
   doc.body.style.cssText = (
       'margin: 0px;' +
@@ -8810,16 +8808,7 @@ hterm.ScrollPort.prototype.setUserCss = function(url) {
 };
 
 hterm.ScrollPort.prototype.focus = function() {
-  this.iframe_.focus();
-  if (this.enableInputMethod === true && 
-      typeof(this.term_) != "undefined" && 
-      this.term_.cursorNode_
-  ) {
-      this.term_.cursorNode_.imeNode.focus();
-  } else {
-    this.screen_.focus();
-  }
-
+  focusImeNode(this.term_.cursorNode_.imeNode, 100);
 };
 
 hterm.ScrollPort.prototype.getForegroundColor = function() {
@@ -9656,16 +9645,8 @@ hterm.ScrollPort.prototype.onResize_ = function(e) {
 };
 
 hterm.ScrollPort.prototype.onClick_ = function(e) {
-  if (true === this.enableInputMethod && 
-      this.term_ &&
-      this.term_.cursorNode_
-  ) {
-      setTimeout(function() {
-          this.iframe_.focus();
-          this.term_.cursorNode_.imeNode.focus();
-      }.bind(this),0);
-  } 
-
+  // move to input will remove the selection of copy.
+  //focusImeNode(this.term_.cursorNode_.imeNode);
 };
 
 /**
@@ -9743,6 +9724,8 @@ hterm.ScrollPort.prototype.onCopy_ = function(e) {
  * FF a content editable element must be focused before the paste event.
  */
 hterm.ScrollPort.prototype.onBodyKeyDown_ = function(e) {
+  focusImeNode(this.term_.cursorNode_.imeNode);
+
   if (!this.ctrlVPaste && !this.ctrlVPasteHacky)
     return;
 
@@ -10196,6 +10179,12 @@ hterm.Terminal.prototype.setProfile = function(profileId, opt_callback) {
     'enable-input-method': function(v) {
       terminal.enableInputMethod = v;
       terminal.scrollPort_.setEnableInputMethod(v);
+      globalSetting.enableInputMethod = v;
+      if (true == v) {
+        enableInputMethod(terminal);
+      } else {
+        disableInputMethod(terminal);
+      }
     },
 
     'font-family': function(v) {
@@ -11103,17 +11092,8 @@ hterm.Terminal.prototype.decorate = function(div) {
   this.cursorNode_.appendChild(displayNode);
   this.cursorNode_.displayNode = displayNode;
 
-
-  this.cursorNode_.addEventListener("click", function (e) {
-      e.preventDefault();
-      e.stopPropagation();
-      setTimeout(function () {
-        this.cursorNode_.imeNode.focus();
-      }.bind(this), 0);
-  }.bind(this));
-
   this.cursorNode_.addEventListener("keydown", function (e) {
-    console.log("keydown ", e.which, " code = " , e.code, " ", e);
+    //console.log("cursor Node keydown ", e.which, " code = " , e.code, " ", e);
     /*
      * 229: in composition, Space: complate character typing.
      * 45: Shift + Insert: paste need to clear input
@@ -11122,7 +11102,6 @@ hterm.Terminal.prototype.decorate = function(div) {
         (e.which === 45 && e.shiftKey === true)
     ) {
           setTimeout(function () {
-            this.scrollPort_.focus();
             e.target.value = "";
           }.bind(this), 0);
     }
@@ -11131,14 +11110,17 @@ hterm.Terminal.prototype.decorate = function(div) {
   this.cursorNode_.addEventListener("keyup", function (e) {
       var value = "";
     //  console.log(value +  "  :  " + encodeURIComponent(value));
-      //console.log(e.which);
       e.preventDefault();
       e.stopPropagation();
+      if (window.frames.document && window.frames.document.activeElement.tagName != e.target.tagName) {
+        focusImeNode(this.cursorNode_.imeNode);
+      }
       value = e.target.value;
       if (e.which == 13) {
-        // space
-        this.scrollPort_.focus();
+        // Enter
+        value = "";
       } else if (e.which == 32 || e.which == 91) {
+        // Space
         value = "";
       } else if (e.which == 8 && value == String.fromCharCode(8)) {
         value = "";
@@ -11160,13 +11142,6 @@ hterm.Terminal.prototype.decorate = function(div) {
       e.target.className += " focus";
   });
 
-  //["keypress"].forEach(function (event) {
-  //  self.cursorNode_.addEventListener(event, function (e) {
-  //     if (e.which != 13) {
-  //         e.stopPropagation();
-  //     }
-  //  });
-  //});
 
   this.cursorNode_.className = 'cursor-node';
   this.cursorNode_.style.cssText =
@@ -11212,12 +11187,12 @@ hterm.Terminal.prototype.decorate = function(div) {
 
   this.cursorNode_.addEventListener('mousedown', function() {
       setTimeout(this.focus.bind(this));
-    }.bind(this));
+    }.bind(this)
+  );
 
   this.setReverseVideo(false);
-
-  this.scrollPort_.focus();
   this.scrollPort_.scheduleRedraw();
+  this.scrollPort_.focus();
 };
 
 /**
@@ -12706,7 +12681,7 @@ hterm.Terminal.prototype.onMouse_ = function(e) {
     // with local text selection.
     if (e.terminalRow - 1 == this.screen_.cursorPosition.row &&
         e.terminalColumn - 1 == this.screen_.cursorPosition.column) {
-      if (false === this.enableInputMethod)
+      //if (false === this.enableInputMethod)
           this.cursorNode_.style.display = 'none';
     } else if (this.cursorNode_.style.display == 'none') {
       this.cursorNode_.style.display = '';
@@ -12789,7 +12764,7 @@ hterm.Terminal.prototype.onMouse = function(e) { };
  * React when focus changes.
  */
 hterm.Terminal.prototype.onFocusChange_ = function(focused) {
-  this.cursorNode_.setAttribute('focus', focused);
+  //this.cursorNode_.setAttribute('focus', focused);
   this.restyleCursor_();
   if (focused === true)
     this.closeBellNotifications_();
@@ -16912,4 +16887,37 @@ lib.fs.getOrCreateDirectory = function(root, path, onSuccess, opt_onError) {
 
   getOrCreateNextName(root);
 };
+
+/**
+ * My Functions
+ */
+
+/**
+ * focusImeNode: move cursor to ime input
+ */
+function focusImeNode(imeNode, waitMs) {
+  var value = "";
+  if (!waitMs) waitMs = 5;
+  if (globalSetting.enableInputMethod === true) {
+      setTimeout(function () {
+        imeNode.focus();
+        // Force to move cursor to imeNode.
+        imeNode.value = "    ";
+        imeNode.value = "";
+      }.bind(this), waitMs);
+  }
+}
+
+function disableInputMethod(terminal) {
+    if (terminal.cursorNode_ && terminal.cursorNode_.imeNode) {
+        terminal.cursorNode_.imeNode.style.display = "none";
+    }
+}
+
+function enableInputMethod(terminal) { //{{{
+    if (terminal.cursorNode_ && terminal.cursorNode_.imeNode) {
+        terminal.cursorNode_.imeNode.style.display = "block";
+    }
+
+} //}}}
 
