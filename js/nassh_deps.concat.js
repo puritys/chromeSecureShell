@@ -12681,7 +12681,6 @@ hterm.Terminal.prototype.onMouse_ = function(e) {
     // with local text selection.
     if (e.terminalRow - 1 == this.screen_.cursorPosition.row &&
         e.terminalColumn - 1 == this.screen_.cursorPosition.column) {
-      if (false === this.enableInputMethod)
           this.cursorNode_.style.display = 'none';
     } else if (this.cursorNode_.style.display == 'none') {
       this.cursorNode_.style.display = '';
@@ -12764,7 +12763,11 @@ hterm.Terminal.prototype.onMouse = function(e) { };
  * React when focus changes.
  */
 hterm.Terminal.prototype.onFocusChange_ = function(focused) {
-  this.cursorNode_.setAttribute('focus', focused);
+  if (true == this.enableInputMethod) {
+      this.cursorNode_.setAttribute('focus', !focused);
+  } else {
+      this.cursorNode_.setAttribute('focus', focused);
+  }
   this.restyleCursor_();
   if (focused === true) {
     this.closeBellNotifications_();
