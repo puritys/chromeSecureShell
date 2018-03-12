@@ -5773,7 +5773,6 @@ hterm.Keyboard.prototype.onKeyDown_ = function(e) {
   ) {
       try {
           term_.document_.execCommand('paste');
-          focusImeNode(this.term_.cursorNode_.imeNode);
           return hterm.Keyboard.KeyActions.PASS;
       } catch (e) {
       }
