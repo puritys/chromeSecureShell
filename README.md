@@ -47,7 +47,10 @@ meta-as-ctrl: I can use the following setting of keybindings instead of my meta-
 
 Good news. Chrome SSH Client is support chinese typing now, you have to install the version bigger than 0.8.42.1. But it still has some serious bugs, such as wrong cursor position and duplicate double-byte character.
 
+## SSH Agent
+* https://github.com/google/chrome-ssh-agent
 
+Google implemented a chrome ssh agent extension, we can use ssh agent instead of my save-password hack.
 
 
 # 安裝方式
