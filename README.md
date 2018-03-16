@@ -36,7 +36,7 @@ The following are the new options that I added for chrome SSH extension.
 
 ## keybindings
 
-meta-as-ctrl: I can use the following setting of keybindings instead of my meta-as-ctrl hacked option.
+I can use the following setting of keybindings instead of my hack "ctrl-v-paste-hacky".
 ```
 {
   "Meta-c": "'\u0003'"
@@ -50,7 +50,7 @@ Good news. Chrome SSH Client is support chinese typing now, you have to install 
 ## SSH Agent
 * https://github.com/google/chrome-ssh-agent
 
-Google implemented a chrome ssh agent extension, we can use ssh agent instead of my save-password hack.
+Google implemented a chrome ssh agent extension, we can use ssh agent instead of my hack save-password.
 
 
 # 安裝方式
