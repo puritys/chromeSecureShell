@@ -30,7 +30,25 @@ The following are the new options that I added for chrome SSH extension.
 * Open the browser chrome and keyin the value "chrome://extensions/" into URL bar.
 * Click the checkbox of developer mode to enable developer mode.
 * Click the button "Load unpacked extension" and choose the directory "chromeSecureShell"
- 
+
+
+# New Features about Official Chrome SSH Client
+
+## keybindings
+
+meta-as-ctrl: I can use the following setting of keybindings instead of my meta-as-ctrl hacked option.
+```
+{
+  "Meta-c": "'\u0003'"
+}
+```
+
+## Chinese typing
+
+Good news. Chrome SSH Client is support chinese typing now, you have to install the version bigger than 0.8.42.1. But it still has some serious bugs, such as wrong cursor position and duplicate double-byte character.
+
+
+
 
 # 安裝方式
 
