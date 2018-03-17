@@ -52,6 +52,9 @@ Good news. Chrome SSH Client is support chinese typing now, you have to install 
 
 Google implemented a chrome ssh agent extension, we can use ssh agent instead of my hack save-password.
 
+## You could do the following settings to fix some problems.
+
+- Fix MacOs auto repeat: https://chromium.googlesource.com/apps/libapps/+/master/nassh/doc/FAQ.md#Why-doesn_t-autorepeat-work-under-macOS
 
 # 安裝方式
 
