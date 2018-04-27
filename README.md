@@ -56,6 +56,11 @@ Google implemented a chrome ssh agent extension, we can use ssh agent instead of
 
 - Fix MacOs auto repeat: https://chromium.googlesource.com/apps/libapps/+/master/nassh/doc/FAQ.md#Why-doesn_t-autorepeat-work-under-macOS
 
+## Install SSH client on Chromium
+* https://download-chromium.appspot.com/
+
+If you do not believe this repo or your latest Google chrome version is not compatible with the extension. Another option is to install this extension on chromium. Chromium is the anestor of Google chrome, it is a open source project created by Google and support most features of Google chrome. 
+
 # 安裝方式
 
 本來想建一個新的  SSH Client V2 到 Google Chrome Extension ，但是 SSH Client 有用到一個 Native Plugin 叫 Terminal Private ，這個 Plugin 並不是 public ，所以目前只能用開發者模式來安裝，安裝方式如下。
