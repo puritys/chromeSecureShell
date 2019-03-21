@@ -60,7 +60,7 @@ Google implemented a chrome ssh agent extension, we can use ssh agent instead of
 * https://download-chromium.appspot.com/
 * Legacy version of Chromium https://commondatastorage.googleapis.com/chromium-browser-snapshots/index.html
 
-If you do not believe this repo or your latest Google chrome version is not compatible with the extension. Another option is to install this extension on Chromium. Chromium is the anestor of Google chrome, it is a open source project created by Google and support most features of Google chrome. 
+If you do not believe this repo or your latest Google chrome version is not compatible with the extension. Another option is to install this extension on the Chromium. Chromium is the ancestor of Google chrome, it is a open source project created by Google and support most features of Google chrome. 
 
 
 # 安裝方式
