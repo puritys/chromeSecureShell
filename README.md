@@ -41,8 +41,40 @@ I can use the following setting of keybindings instead of my hack "ctrl-v-paste-
 {
   "Meta-c": "'\u0003'"
 }
+
 ```
 
+Meta as Ctrl
+```
+{
+  "Meta-a": "'\u0001'",
+  "Meta-b": "'\u0002'",
+  "Meta-c": "'\u0003'",
+  "Meta-d": "'\u0004'",
+  "Meta-e": "'\u0005'",
+  "Meta-f": "'\u0006'",
+  "Meta-g": "'\u0007'",
+  "Meta-h": "'\b'",
+  "Meta-i": "'\t'",
+  "Meta-j": "'\n'",
+  "Meta-k": "'\u000b'",
+  "Meta-l": "'\f'",
+  "Meta-m": "'\r'",
+  "Meta-n": "'\u000e'",
+  "Meta-o": "'\u000f'",
+  "Meta-p": "'\u0010'",
+  "Meta-q": "'\u0011'",
+  "Meta-r": "'\u0012'",
+  "Meta-s": "'\u0013'",
+  "Meta-t": "'\u0014'",
+  "Meta-u": "'\u0015'",
+  "Meta-v": "'\u0016'",
+  "Meta-w": "'\u0017'",
+  "Meta-x": "'\u0018'",
+  "Meta-y": "'\u0019'",
+  "Meta-z": "'\u001a'"
+}
+```
 ## Chinese typing
 
 Good news. Chrome SSH Client is support chinese typing now, you have to install the version bigger than 0.8.42.1. But it still has some serious bugs, such as wrong cursor position and duplicate double-byte character.
